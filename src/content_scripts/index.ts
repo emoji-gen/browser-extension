@@ -9,14 +9,14 @@ namespace eg.content_scripts {
   }
 
   function attach() {
-    const ce = new CustomEvent(ev.CE_ATTACH, {})
+    const ce = new CustomEvent(ev.CE_ATTACH, { detail: { contents: null } })
     document.body.dispatchEvent(ce)
   }
 
   function listenCustomEvents() {
     document.body.addEventListener(ev.CE_SEARCH_JOINED_TEAMS, e => {
       chrome.runtime.sendMessage({ type: ev.CE_SEARCH_JOINED_TEAMS }, response => {
-        const ce = new CustomEvent(ev.CE_SEARCH_JOINED_TEAMS_END, response)
+        const ce = new CustomEvent(ev.CE_SEARCH_JOINED_TEAMS_END, { detail: response })
         document.body.dispatchEvent(ce)
       })
     })
