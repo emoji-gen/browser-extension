@@ -87,7 +87,7 @@ export async function registerEmoji(
     console.log(messages)
   }
 
-  if (alertElement.hasClass('alert-success') && messages.length > 0) {
+  if (alertElement.hasClass('alert_success') && messages.length > 0) {
     return messages[0]
   }
 
