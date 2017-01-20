@@ -41,7 +41,7 @@ module.exports = {
         loader: 'ts',
       },
       {
-        test: /\.json?$/,
+        test: /\.json$/,
         loader: 'json',
       },
     ],
