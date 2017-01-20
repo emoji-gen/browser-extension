@@ -13,14 +13,16 @@ namespace eg.content_scripts {
     document.body.dispatchEvent(ce)
   }
 
-  function listenCustomEvents() {
-    document.body.addEventListener(ev.CE_SEARCH_JOINED_TEAMS, e => {
-      chrome.runtime.sendMessage({ type: ev.CE_SEARCH_JOINED_TEAMS }, response => {
-        const ce = new CustomEvent(ev.CE_SEARCH_JOINED_TEAMS_END, { detail: response })
+  function listenCustomEvent(req: string, res: string) {
+    document.body.addEventListener(req, (e: CustomEvent) => {
+      chrome.runtime.sendMessage({ type: req, detail: e.detail }, response => {
+        const ce = new CustomEvent(res, { detail: response })
         document.body.dispatchEvent(ce)
       })
     })
   }
+
+  // --------------------------------------------------------------------------
 
   export function main() {
     if (_DEBUG) {
@@ -33,7 +35,8 @@ namespace eg.content_scripts {
         if (_DEBUG) {
           console.log('attach to Webpage', response)
         }
-        listenCustomEvents()
+        listenCustomEvent(ev.CE_SEARCH_JOINED_TEAMS, ev.CE_SEARCH_JOINED_TEAMS_DONE)
+        listenCustomEvent(ev.CE_REGISTER_EMOJI, ev.CE_REGISTER_EMOJI_DONE)
         attach()
       })
     }

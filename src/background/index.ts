@@ -10,9 +10,6 @@ namespace eg.background {
     sendResponse: (response: any) => void
     )
   {
-    if (_DEBUG) {
-      console.log('attached by Content Scripts', request)
-    }
     sendResponse({ contents: null })
   }
 
@@ -29,6 +26,25 @@ namespace eg.background {
     return true
   }
 
+  function registerEmoji(
+    request: any,
+    sender: chrome.runtime.MessageSender,
+    sendResponse: (response: any) => void
+  ) {
+    slack.registerEmoji(
+      request.detail.url,
+      request.detail.text,
+      request.detail.teamdomain
+    )
+      .then(
+        message => sendResponse({ contents: message }),
+        err     => sendResponse({ err })
+      )
+      return true
+  }
+
+  // --------------------------------------------------------------------------
+
   export function main() {
     if (_DEBUG) {
       console.log('Start background scripts')
@@ -36,11 +52,16 @@ namespace eg.background {
 
     chrome.runtime.onMessage.addListener(
       function (request, sender, sendResponse) {
+        if (_DEBUG) {
+          console.log(request)
+        }
         switch (request.type) {
           case ev.CE_ATTACH:
             return attached(request, sender, sendResponse)
           case ev.CE_SEARCH_JOINED_TEAMS:
             return searchJoinedTeams(request, sender, sendResponse)
+          case ev.CE_REGISTER_EMOJI:
+            return registerEmoji(request, sender, sendResponse)
         }
       }
     )
