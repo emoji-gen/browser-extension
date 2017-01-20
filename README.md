@@ -1,4 +1,5 @@
-# Emoji-ChromeExtension
+Emoji-ChromeExtension
+---------------------
 
 :tada: Ultimate Chrome Extension
 
