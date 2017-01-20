@@ -1,0 +1,32 @@
+{
+  "name": "emoji",
+  "description": "emoji",
+  "icons": {
+  },
+  "version": "0.1.0",
+  "manifest_version": 2,
+  "background": {
+    "scripts": [
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [ "*://emoji.pine.moe/*" ],
+      "css": [
+      ],
+      "js": [
+        "content_script.bundle{{jsExtension}}"
+      ],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "permissions": [
+    "*://emoji.pine.moe/*"
+  ],
+  "web_accessible_resources": [
+    "*.map",
+    "**/*.map",
+    "**/*.html"
+  ]
+}

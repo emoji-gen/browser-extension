@@ -1,0 +1,35 @@
+{
+  "name": "emoji-chrome-extension",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp watch",
+    "build": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pine/Emoji-ChromeExtension.git"
+  },
+  "author": "Pine Mizune",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pine/Emoji-ChromeExtension/issues"
+  },
+  "homepage": "https://github.com/pine/Emoji-ChromeExtension#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-load-plugins": "^1.4.0",
+    "gulp-util": "^3.0.8",
+    "lodash": "^4.17.4",
+    "run-sequence": "^1.2.2",
+    "ts-loader": "^1.3.3",
+    "typescript": "^2.1.5",
+    "webpack": "^1.14.0",
+    "webpack-fail-plugin": "^1.0.5",
+    "webpack-notifier": "^1.5.0",
+    "gulp-mustache": "^2.3.0"
+  },
+  "dependencies": {
+  }
+}
