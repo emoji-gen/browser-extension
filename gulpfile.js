@@ -9,19 +9,22 @@ const _           = require('lodash')
 
 const isWatch = ~process.argv.indexOf('watch')
 
-
 // ----- manifest -------------------------------------------------------------
 
 gulp.task('manifest', () => {
-  gulp.src('./src/manifest.json')
+  gulp.src('./src/manifest.mustache')
+    .pipe($.plumber())
     .pipe($.mustache({
+      isDev: isWatch,
       jsExtension: isWatch ? '.js' : '.min.js',
     }))
+    .pipe($.rename({ extname: '.json' }))
+    .pipe($.if(!isWatch, $.jsonminify()))
     .pipe(gulp.dest('./dist'))
 })
 
 gulp.task('manifest-watch', () => {
-  gulp.watch('./src/manifest.json', ['manifest'])
+  gulp.watch('./src/manifest.mustache', ['manifest'])
 })
 
 

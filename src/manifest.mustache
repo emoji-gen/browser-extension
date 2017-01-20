@@ -11,17 +11,25 @@
   },
   "content_scripts": [
     {
-      "matches": [ "*://emoji.pine.moe/*" ],
+      "matches": [
+        {{#isDev}}
+        "*://localhost/*",
+        {{/isDev}}
+        "*://emoji.pine.moe/*"
+      ],
       "css": [
       ],
       "js": [
         "content_script.bundle{{jsExtension}}"
       ],
-      "run_at": "document_start",
+      "run_at": "document_end",
       "all_frames": false
     }
   ],
   "permissions": [
+    {{#isDev}}
+    "*://localhost/*",
+    {{/isDev}}
     "*://emoji.pine.moe/*"
   ],
   "web_accessible_resources": [

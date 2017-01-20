@@ -25,6 +25,7 @@ module.exports = {
   context: __dirname,
   entry: {
     'content_script': './src/content_script',
+    'background': './src/background',
   },
   output: {
     filename: isWatch ?
