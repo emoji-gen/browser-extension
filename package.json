@@ -1,7 +1,7 @@
 {
   "name": "emoji-chrome-extension",
   "version": "0.1.0",
-  "description": "",
+  "description": "Ultimate Chrome Extension for Emoji Generator",
   "main": "index.js",
   "scripts": {
     "start": "gulp watch",
