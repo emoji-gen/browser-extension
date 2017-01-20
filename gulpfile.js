@@ -9,22 +9,34 @@ const _           = require('lodash')
 
 const isWatch = ~process.argv.indexOf('watch')
 
+// ----- env ------------------------------------------------------------------
+
+gulp.task('env', () => {
+  gulp.src('./src/env.js.mustache')
+    .pipe($.plumber())
+    .pipe($.mustache({ isDev: isWatch }))
+    .pipe($.rename({ extname: '' }))
+    .pipe(gulp.dest('./dist'))
+})
+
+gulp.task('env-watch', () => {
+  gulp.watch('./src/env.js.mustache', ['env'])
+})
+
+
 // ----- manifest -------------------------------------------------------------
 
 gulp.task('manifest', () => {
-  gulp.src('./src/manifest.mustache')
+  gulp.src('./src/manifest.json.mustache')
     .pipe($.plumber())
-    .pipe($.mustache({
-      isDev: isWatch,
-      jsExtension: isWatch ? '.js' : '.min.js',
-    }))
-    .pipe($.rename({ extname: '.json' }))
+    .pipe($.mustache({ isDev: isWatch }))
+    .pipe($.rename({ extname: '' }))
     .pipe($.if(!isWatch, $.jsonminify()))
     .pipe(gulp.dest('./dist'))
 })
 
 gulp.task('manifest-watch', () => {
-  gulp.watch('./src/manifest.mustache', ['manifest'])
+  gulp.watch('./src/manifest.json.mustache', ['manifest'])
 })
 
 
@@ -72,7 +84,12 @@ gulp.task('webpack-watch', cb => {
 
 gulp.task('build-prod', cb => {
   runSequence(
-    ['assets', 'manifest', 'webpack-prod'],
+    [
+      'assets',
+      'env',
+      'manifest',
+      'webpack-prod',
+    ],
     cb
   )
 })
@@ -84,7 +101,11 @@ gulp.task('default', ['build-prod'])
 
 gulp.task('build-watch', cb => {
   runSequence(
-    ['assets', 'manifest'],
+    [
+      'assets',
+      'env',
+      'manifest',
+    ],
     cb
   )
 })
@@ -96,6 +117,7 @@ gulp.task('watch', cb => {
     ],
     [
       'assets-watch',
+      'env-watch',
       'manifest-watch',
       'webpack-watch',
     ],

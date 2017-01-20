@@ -3,8 +3,8 @@
 const path    = require('path')
 const webpack = require('webpack')
 
-const WebpackFailPlugin       = require('webpack-fail-plugin')
-const WebpackNotifierPlugin   = require('webpack-notifier')
+const WebpackFailPlugin     = require('webpack-fail-plugin')
+const WebpackNotifierPlugin = require('webpack-notifier')
 
 const isWatch = ~process.argv.indexOf('--watch')
 const plugins = [ new WebpackNotifierPlugin({ alwaysNotify: true }) ]
@@ -24,19 +24,26 @@ if (!isWatch) {
 module.exports = {
   context: __dirname,
   entry: {
-    'content_script': './src/content_script',
+    'content_scripts': './src/content_scripts',
     'background': './src/background',
   },
   output: {
-    filename: isWatch ?
-      './dist/[name].bundle.js' : './dist/[name].bundle.min.js',
+    filename: './dist/[name].bundle.js',
   },
   resolve: {
-    extensions: ['.ts', '.js'],
+    extensions: ['', '.ts', '.tsx', '.js', 'jsx'],
+    modulesDirectories: ['node_modules'],
   },
   module: {
     loaders: [
-      { test: /\.ts$/, loader: 'ts' },
+      {
+        test: /\.tsx?$/,
+        loader: 'ts',
+      },
+      {
+        test: /\.json?$/,
+        loader: 'json',
+      },
     ],
   },
   plugins,
