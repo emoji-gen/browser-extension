@@ -64,7 +64,7 @@ export async function registerEmoji(
   const fd = new FormData()
   pairs.forEach(pair => {
     if (pair.name === 'name') {
-      fd.append(pair.name, text + 'xxxx')
+      fd.append(pair.name, text)
     } else {
       fd.append(pair.name, pair.value)
     }
