@@ -7,7 +7,13 @@ const WebpackFailPlugin     = require('webpack-fail-plugin')
 const WebpackNotifierPlugin = require('webpack-notifier')
 
 const isWatch = ~process.argv.indexOf('--watch')
-const plugins = [ new WebpackNotifierPlugin({ alwaysNotify: true }) ]
+const plugins = [
+  new webpack.NormalModuleReplacementPlugin(
+    /sinon/,
+    `${__dirname}/node_modules/sinon/pkg/sinon.js`
+  ),
+  new WebpackNotifierPlugin({ alwaysNotify: true })
+]
 
 if (!isWatch) {
   plugins.push(
@@ -35,6 +41,9 @@ module.exports = {
     modulesDirectories: ['node_modules'],
   },
   module: {
+    noParse: [
+      /sinon/,
+    ],
     loaders: [
       {
         test: /\.tsx?$/,
@@ -45,6 +54,9 @@ module.exports = {
         loader: 'json',
       },
     ],
+  },
+  browsers: {
+    fs: false
   },
   plugins,
   watchOptions: {
