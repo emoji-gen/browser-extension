@@ -5,7 +5,7 @@
 ## Requirements
 
 - Node `$(cat .node-version)`
-- yarn
+- [Yarn](https://yarnpkg.com/)
 
 ## Getting Started
 
