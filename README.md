@@ -4,7 +4,7 @@
 
 ## Requirements
 
-- Node v6.9.4
+- Node `$(cat .node-version)`
 - yarn
 
 ## Getting Started
