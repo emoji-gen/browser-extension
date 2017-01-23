@@ -164,10 +164,14 @@ gulp.task('watch', cb => {
 // ----- for test -------------------------------------------------------------
 
 gulp.task('karma', cb => {
-  new Server({
+  const server = new Server({
     configFile: `${__dirname}/karma.conf.js`,
     singleRun: true
-  }, () => { cb() }).start()
+  })
+  server.on('run_complete', function(browsers, results) {
+    cb(results.error ? 'There are test failures' : null)
+  })
+  server.start()
 })
 
 gulp.task('test', ['karma', 'tslint'])
