@@ -14,7 +14,10 @@ const isWatch = ~process.argv.indexOf('watch')
 // ----- clean ----------------------------------------------------------------
 
 gulp.task('clean', cb => {
-  rimraf('./dist', cb)
+  rimraf('./dist', err => {
+    if (err) { return cb(err) }
+    rimraf('archive.zip', cb)
+  })
 })
 
 
