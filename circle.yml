@@ -1,0 +1,13 @@
+machine:
+  node:
+    version: 6.9.4
+
+dependencies:
+  override:
+    - npm i -g yarn
+    - yarn
+
+test:
+  override:
+    - yarn test
+    - yarn run build
