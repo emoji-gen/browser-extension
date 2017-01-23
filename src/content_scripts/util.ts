@@ -20,4 +20,3 @@ export function listenCustomEvent(req: string, res: string) {
     })
   })
 }
-

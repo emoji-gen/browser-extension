@@ -4,6 +4,7 @@ const { exec } = require('child_process')
 const gulp        = require('gulp')
 const gutil       = require('gulp-util')
 const $           = require('gulp-load-plugins')()
+const { Server }  = require('karma')
 const rimraf      = require('rimraf')
 const runSequence = require('run-sequence')
 const _           = require('lodash')
@@ -162,5 +163,11 @@ gulp.task('watch', cb => {
 
 // ----- for test -------------------------------------------------------------
 
+gulp.task('karma', cb => {
+  new Server({
+    configFile: `${__dirname}/karma.conf.js`,
+    singleRun: true
+  }, () => { cb() }).start()
+})
 
-gulp.task('test', ['tslint'])
+gulp.task('test', ['karma', 'tslint'])
