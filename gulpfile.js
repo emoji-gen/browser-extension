@@ -4,10 +4,19 @@ const { exec } = require('child_process')
 const gulp        = require('gulp')
 const gutil       = require('gulp-util')
 const $           = require('gulp-load-plugins')()
+const rimraf      = require('rimraf')
 const runSequence = require('run-sequence')
 const _           = require('lodash')
 
 const isWatch = ~process.argv.indexOf('watch')
+
+
+// ----- clean ----------------------------------------------------------------
+
+gulp.task('clean', cb => {
+  rimraf('./dist', cb)
+})
+
 
 // ----- env ------------------------------------------------------------------
 
@@ -93,6 +102,7 @@ gulp.task('zip', () =>
 
 gulp.task('build-prod', cb => {
   runSequence(
+    'clean',
     [
       'assets',
       'env',
@@ -122,6 +132,7 @@ gulp.task('build-watch', cb => {
 
 gulp.task('watch', cb => {
   runSequence(
+    'clean',
     [
       'build-watch',
     ],
