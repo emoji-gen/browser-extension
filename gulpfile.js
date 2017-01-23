@@ -11,13 +11,13 @@ const isWatch = ~process.argv.indexOf('watch')
 
 // ----- env ------------------------------------------------------------------
 
-gulp.task('env', () => {
+gulp.task('env', () =>
   gulp.src('./src/env.js.mustache')
     .pipe($.plumber())
     .pipe($.mustache({ isDev: isWatch }))
     .pipe($.rename({ extname: '' }))
     .pipe(gulp.dest('./dist'))
-})
+)
 
 gulp.task('env-watch', () => {
   gulp.watch('./src/env.js.mustache', ['env'])
@@ -26,14 +26,14 @@ gulp.task('env-watch', () => {
 
 // ----- manifest -------------------------------------------------------------
 
-gulp.task('manifest', () => {
+gulp.task('manifest', () =>
   gulp.src('./src/manifest.json.mustache')
     .pipe($.plumber())
     .pipe($.mustache({ isDev: isWatch }))
     .pipe($.rename({ extname: '' }))
     .pipe($.if(!isWatch, $.jsonminify()))
     .pipe(gulp.dest('./dist'))
-})
+)
 
 gulp.task('manifest-watch', () => {
   gulp.watch('./src/manifest.json.mustache', ['manifest'])
@@ -42,14 +42,14 @@ gulp.task('manifest-watch', () => {
 
 // ----- assets ---------------------------------------------------------------
 
-gulp.task('assets', () => {
+gulp.task('assets', () =>
   gulp.src('./assets/**/*')
     .pipe(gulp.dest('./dist'))
-})
+)
 
-gulp.task('assets-watch', () => {
+gulp.task('assets-watch', () =>
   gulp.watch('./assets/**/*', ['assets'])
-})
+)
 
 
 // ----- webpack --------------------------------------------------------------
@@ -80,6 +80,15 @@ gulp.task('webpack-watch', cb => {
 })
 
 
+// ----- zip ------------------------------------------------------------------
+
+gulp.task('zip', () =>
+  gulp.src('dist/**/*')
+    .pipe($.zip('archive.zip'))
+    .pipe(gulp.dest('.'))
+)
+
+
 // ----- for production -------------------------------------------------------
 
 gulp.task('build-prod', cb => {
@@ -90,6 +99,7 @@ gulp.task('build-prod', cb => {
       'manifest',
       'webpack-prod',
     ],
+    'zip',
     cb
   )
 })

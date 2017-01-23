@@ -28,6 +28,7 @@
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-util": "^3.0.8",
+    "gulp-zip": "^3.2.0",
     "json-loader": "^0.5.4",
     "lodash": "^4.17.4",
     "run-sequence": "^1.2.2",
