@@ -4,12 +4,12 @@ import axios from 'axios'
 import * as cheerio from 'cheerio'
 import * as v from 'voca'
 
-export interface Team {
+export interface ITeam {
   name: string;
   teamdomain: string;
 }
 
-export async function searchJoinedTeams() : Promise<Team[]> {
+export async function searchJoinedTeams(): Promise<ITeam[]> {
   const res = await axios.get('https://slack.com/customize/emoji')
   if (_DEBUG) {
     console.log(res)
@@ -17,7 +17,7 @@ export async function searchJoinedTeams() : Promise<Team[]> {
 
   const $ = cheerio.load(res.data)
   const teamAnchors = $('#header_team_nav li:not(#add_team_option) a').toArray()
-  const teams: Team[] = teamAnchors
+  const teams: ITeam[] = teamAnchors
     .map(_anchor => {
       const anchor  = $(_anchor)
       const href    = anchor.attr('href')
@@ -41,8 +41,8 @@ export async function searchJoinedTeams() : Promise<Team[]> {
 export async function registerEmoji(
   url: string,
   text: string,
-  teamdomain: string
-  ) : Promise<string>
+  teamdomain: string,
+  ): Promise<string>
 {
   if (!url) { throw 'Invalid Emoji URL' }
 

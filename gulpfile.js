@@ -11,6 +11,18 @@ const _           = require('lodash')
 const isWatch = ~process.argv.indexOf('watch')
 
 
+// ----- assets ---------------------------------------------------------------
+
+gulp.task('assets', () =>
+  gulp.src('./assets/**/*')
+    .pipe(gulp.dest('./dist'))
+)
+
+gulp.task('assets-watch', () =>
+  gulp.watch('./assets/**/*', ['assets'])
+)
+
+
 // ----- clean ----------------------------------------------------------------
 
 gulp.task('clean', cb => {
@@ -52,15 +64,13 @@ gulp.task('manifest-watch', () => {
 })
 
 
-// ----- assets ---------------------------------------------------------------
+// ----- tslint ---------------------------------------------------------------
 
-gulp.task('assets', () =>
-  gulp.src('./assets/**/*')
-    .pipe(gulp.dest('./dist'))
-)
-
-gulp.task('assets-watch', () =>
-  gulp.watch('./assets/**/*', ['assets'])
+gulp.task('tslint', () =>
+  gulp.src('src/**/*.ts')
+    .pipe($.plumber())
+    .pipe($.tslint({ formatter: 'prose' }))
+    .pipe($.tslint.report({ summarizeFailureOutput: true }))
 )
 
 
@@ -152,4 +162,5 @@ gulp.task('watch', cb => {
 
 // ----- for test -------------------------------------------------------------
 
-gulp.task('test', [])
+
+gulp.task('test', ['tslint'])

@@ -1,0 +1,17 @@
+{
+  "extends": "tslint:latest",
+  "rules": {
+    "semicolon": false,
+    "quotemark": [true, "sinble"],
+    "trailing-comma": [true, {
+      "multiline": "always",
+      "singleline": "never"
+    }],
+    "no-console": false,
+    "arrow-parens": false,
+    "one-line": false,
+    "switch-default": false,
+    "variable-name": [true, "allow-leading-underscore"],
+    "no-string-throw": false
+  }
+}
