@@ -1,4 +1,4 @@
-## Emoji-ChromeExtension [![CircleCI branch](https://img.shields.io/circleci/project/github/emoji-gen/Emoji-ChromeExtension/master.svg?style=flat-square)](https://circleci.com/gh/emoji-gen/Emoji-ChromeExtension) [![David](https://img.shields.io/david/emoji-gen/Emoji-ChromeExtension.svg?style=flat-square)](https://david-dm.org/emoji-gen/Emoji-ChromeExtension) [![David](https://img.shields.io/david/dev/emoji-gen/Emoji-ChromeExtension.svg?style=flat-square)](https://david-dm.org/emoji-gen/Emoji-ChromeExtension?type=dev)
+## Emoji-ChromeExtension &nbsp;[![CircleCI](https://circleci.com/gh/emoji-gen/Emoji-ChromeExtension/tree/master.svg?style=shield)](https://circleci.com/gh/emoji-gen/Emoji-ChromeExtension/tree/master) [![Dependency Status](https://gemnasium.com/badges/github.com/emoji-gen/Emoji-ChromeExtension.svg)](https://gemnasium.com/github.com/emoji-gen/Emoji-ChromeExtension)
 
 :tada: Ultimate Chrome Extension
 
