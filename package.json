@@ -24,6 +24,7 @@
     "@types/chrome": "^0.0.38",
     "@types/mocha": "^2.2.38",
     "@types/sinon": "^1.16.34",
+    "@types/voca": "^1.2.0",
     "chai": "^3.5.0",
     "gulp": "^3.9.1",
     "gulp-if": "^2.0.2",
