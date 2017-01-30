@@ -1,5 +1,5 @@
-const fs       = require('fs')
-const { exec } = require('child_process')
+const fs          = require('fs')
+const { exec }    = require('child_process')
 
 const gulp        = require('gulp')
 const gutil       = require('gulp-util')
@@ -8,6 +8,8 @@ const { Server }  = require('karma')
 const rimraf      = require('rimraf')
 const runSequence = require('run-sequence')
 const _           = require('lodash')
+
+const pkg         = require('./package.json')
 
 const isWatch = ~process.argv.indexOf('watch')
 
@@ -54,7 +56,10 @@ gulp.task('env-watch', () => {
 gulp.task('manifest', () =>
   gulp.src('./src/manifest.json.mustache')
     .pipe($.plumber())
-    .pipe($.mustache({ isDev: isWatch }))
+    .pipe($.mustache({
+      isDev: isWatch,
+      version: pkg.version,
+    }))
     .pipe($.rename({ extname: '' }))
     .pipe($.if(!isWatch, $.jsonminify()))
     .pipe(gulp.dest('./dist'))
