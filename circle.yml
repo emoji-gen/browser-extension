@@ -10,6 +10,7 @@ dependencies:
     - yarn --version
   override:
     - yarn
+    - yarn add --force --dev phantomjs-prebuilt
 
 test:
   override:
