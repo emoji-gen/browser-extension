@@ -1,6 +1,9 @@
 'use strict'
 
+import {Ptero} from 'ptero'
 import * as ev from '../event'
+
+const ptero = new Ptero(document.body)
 
 export function getAppName() {
   const element = document.querySelector('meta[name="app:name"]')
@@ -8,15 +11,13 @@ export function getAppName() {
 }
 
 export function attach() {
-  const ce = new CustomEvent(ev.CE_ATTACH, { detail: { contents: null } })
-  document.body.dispatchEvent(ce)
+  ptero.emit(ev.CE_ATTACH, { contents: null })
 }
 
 export function listenCustomEvent(req: string, res: string) {
-  document.body.addEventListener(req, (e: CustomEvent) => {
+  ptero.on(req, (e: CustomEvent) => {
     chrome.runtime.sendMessage({ type: req, detail: e.detail }, response => {
-      const ce = new CustomEvent(res, { detail: response })
-      document.body.dispatchEvent(ce)
+      ptero.emit(res, response)
     })
   })
 }
