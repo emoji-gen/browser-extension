@@ -478,6 +478,10 @@ cliui@^2.1.0:
     right-align "^0.1.1"
     wordwrap "0.0.2"
 
+clone-into@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/clone-into/-/clone-into-0.1.0.tgz#10118fadb250bc149554a2c272119a3a11864b10"
+
 clone-stats@^0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/clone-stats/-/clone-stats-0.0.1.tgz#b88f94a82cf38b8791d58046ea4029ad88ca99d1"
