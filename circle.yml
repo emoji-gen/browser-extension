@@ -3,8 +3,12 @@ machine:
     version: 6.9.4
 
 dependencies:
-  override:
+  cache_directories:
+    - ~/.cache/yarn
+  pre:
     - curl -o- -L https://yarnpkg.com/install.sh | bash
+    - yarn --version
+  override:
     - yarn
 
 test:
