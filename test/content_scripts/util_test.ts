@@ -44,18 +44,23 @@ describe('attach', () => {
 })
 
 describe('listenCustomEvent', () => {
+  let sandbox: sinon.SinonSandbox
+
   beforeEach(() => {
-    (<any>window).chrome = {
+    sandbox = sinon.sandbox.create()
+
+    window['chrome'] = undefined
+    sandbox.stub(window, 'chrome', {
       runtime: {
         sendMessage: function(detail: any, response: (detail: any) => void) {
           response(detail)
         },
       },
-    }
+    })
   })
 
   afterEach(() => {
-    (<any>window).chrome = undefined
+    sandbox.restore()
   })
 
   it('# can listen custom event', () => {
