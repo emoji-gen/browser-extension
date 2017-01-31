@@ -114,6 +114,8 @@ gulp.task('zip', () =>
   gulp.src('dist/**/*')
     .pipe($.zip('archive.zip'))
     .pipe(gulp.dest('.'))
+    .pipe($.rename({ extname: '.xpi' }))
+    .pipe(gulp.dest('.'))
 )
 
 
