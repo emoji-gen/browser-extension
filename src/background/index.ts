@@ -1,8 +1,8 @@
 'use strict'
 
 import * as ev from '../event'
-import * as slack from './slack'
 import * as browserAction from './browser_action'
+import * as slack from './slack'
 
 function attached(
   request: any,
