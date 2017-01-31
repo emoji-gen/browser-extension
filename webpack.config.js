@@ -39,12 +39,19 @@ module.exports = {
   resolve: {
     extensions: ['', '.ts', '.tsx', '.js', 'jsx'],
     modulesDirectories: ['node_modules'],
+    alias: {
+      'sinon': 'sinon/pkg/sinon',
+    },
   },
   module: {
     noParse: [
       /sinon/,
     ],
     loaders: [
+      {
+        test: /sinon.*\.js$/,
+        loader: 'imports?define=>false,require=>false',
+      },
       {
         test: /\.tsx?$/,
         loader: 'ts',
