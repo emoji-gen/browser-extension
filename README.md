@@ -17,6 +17,12 @@ $ yarn run build # for production
 
 Next, please load `dist` directory  as browser extension on Chrome.
 
+## Supported Browsers
+Microsoft Edge is not supported, because Edge's WebExtensions support is incomplete.
+
+- Google Chrome
+- Firefox (*experimental*)
+
 ## License
 
 Copyright (C) 2017 Emoji Generator.
