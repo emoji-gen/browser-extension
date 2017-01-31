@@ -26,6 +26,7 @@
     "@types/sinon": "^1.16.34",
     "@types/voca": "^1.2.0",
     "chai": "^3.5.0",
+    "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-if": "^2.0.2",
     "gulp-jsonminify": "^1.0.0",

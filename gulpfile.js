@@ -5,7 +5,7 @@ const gulp        = require('gulp')
 const gutil       = require('gulp-util')
 const $           = require('gulp-load-plugins')()
 const { Server }  = require('karma')
-const rimraf      = require('rimraf')
+const del         = require('del')
 const runSequence = require('run-sequence')
 const _           = require('lodash')
 
@@ -29,10 +29,9 @@ gulp.task('assets-watch', () =>
 // ----- clean ----------------------------------------------------------------
 
 gulp.task('clean', cb => {
-  rimraf('./dist', err => {
-    if (err) { return cb(err) }
-    rimraf('archive.zip', cb)
-  })
+  del(['dist', 'archive.*'])
+    .then(()=> cb())
+    .catch(err => cb(err))
 })
 
 
@@ -113,8 +112,6 @@ gulp.task('webpack-watch', cb => {
 gulp.task('zip', () =>
   gulp.src('dist/**/*')
     .pipe($.zip('archive.zip'))
-    .pipe(gulp.dest('.'))
-    .pipe($.rename({ extname: '.xpi' }))
     .pipe(gulp.dest('.'))
 )
 
