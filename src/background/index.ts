@@ -2,6 +2,7 @@
 
 import * as ev from '../event'
 import * as slack from './slack'
+import * as browserAction from './browser_action'
 
 function attached(
   request: any,
@@ -49,6 +50,7 @@ function main() {
     console.log('Start background scripts')
   }
 
+  browserAction.addListener()
   chrome.runtime.onMessage.addListener(
     (request, sender, sendResponse) => {
       if (_DEBUG) {
