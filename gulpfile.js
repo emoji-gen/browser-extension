@@ -50,27 +50,6 @@ gulp.task('env-watch', () => {
 })
 
 
-// ----- karma ---------------------------------------------------------------
-
-gulp.task('karma', cb => {
-  const server = new Server({
-    configFile: `${__dirname}/karma.conf.js`,
-    singleRun: true
-  })
-  server.on('run_complete', function(browsers, results) {
-    cb(results.error ? 'There are test failures' : null)
-  })
-  server.start()
-})
-
-gulp.task('karma-watch', cb => {
-  const server = new Server({
-    configFile: `${__dirname}/karma.conf.js`
-  })
-  server.start()
-})
-
-
 // ----- manifest -------------------------------------------------------------
 
 gulp.task('manifest', () =>
@@ -178,7 +157,6 @@ gulp.task('watch', cb => {
     [
       'assets-watch',
       'env-watch',
-      'karma-watch',
       'manifest-watch',
       'webpack-watch',
     ],
@@ -188,5 +166,16 @@ gulp.task('watch', cb => {
 
 
 // ----- for test -------------------------------------------------------------
+
+gulp.task('karma', cb => {
+  const server = new Server({
+    configFile: `${__dirname}/karma.conf.js`,
+    singleRun: true
+  })
+  server.on('run_complete', function(browsers, results) {
+    cb(results.error ? 'There are test failures' : null)
+  })
+  server.start()
+})
 
 gulp.task('test', ['karma', 'tslint'])
