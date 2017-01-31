@@ -1,6 +1,6 @@
-## Emoji-ChromeExtension &nbsp;[![CircleCI](https://circleci.com/gh/emoji-gen/Emoji-ChromeExtension/tree/master.svg?style=shield)](https://circleci.com/gh/emoji-gen/Emoji-ChromeExtension/tree/master) [![Dependency Status](https://gemnasium.com/badges/github.com/emoji-gen/Emoji-ChromeExtension.svg)](https://gemnasium.com/github.com/emoji-gen/Emoji-ChromeExtension)
+## Emoji-BrowserExtension &nbsp;[![CircleCI](https://circleci.com/gh/emoji-gen/Emoji-BrowserExtension/tree/master.svg?style=shield)](https://circleci.com/gh/emoji-gen/Emoji-BrowserExtension/tree/master) [![Dependency Status](https://gemnasium.com/badges/github.com/emoji-gen/Emoji-BrowserExtension.svg)](https://gemnasium.com/github.com/emoji-gen/Emoji-BrowserExtension)
 
-:tada: Ultimate Chrome Extension
+:tada: Ultimate Browser Extension
 
 ## Requirements
 
