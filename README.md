@@ -25,4 +25,4 @@ Microsoft Edge is not supported, because Edge's WebExtensions support is incompl
 
 ## License
 
-Copyright (C) 2017 Emoji Generator.
+MIT &copy; Emoji Generator.
