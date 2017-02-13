@@ -29,7 +29,7 @@ gulp.task('assets-watch', () =>
 // ----- clean ----------------------------------------------------------------
 
 gulp.task('clean', cb => {
-  del(['dist', 'archive.*'])
+  del(['dist', '*.zip'])
     .then(()=> cb())
     .catch(err => cb(err))
 })
@@ -109,12 +109,32 @@ gulp.task('webpack-watch', cb => {
 
 // ----- zip ------------------------------------------------------------------
 
-gulp.task('zip', () =>
+gulp.task('zip', ['zip.archive', 'zip.source'])
+
+gulp.task('zip.archive', () =>
   gulp.src('dist/**/*')
     .pipe($.zip('archive.zip'))
     .pipe(gulp.dest('.'))
 )
 
+gulp.task('zip.source', () =>
+  gulp.src([
+    'assets/**/*',
+    'src/**/*',
+    'test/**/*',
+    '.node-version',
+    '.editorconfig',
+    '.gitignore',
+    '*.js',
+    '*.json',
+    '*.yml',
+    '*.md',
+    'yarn.lock',
+    'LICENSE',
+  ], { base: '.' })
+    .pipe($.zip('source.zip'))
+    .pipe(gulp.dest('.'))
+)
 
 // ----- for production -------------------------------------------------------
 
