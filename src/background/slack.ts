@@ -17,7 +17,7 @@ export async function searchJoinedTeams(): Promise<ITeam[]> {
 
   const $ = cheerio.load(res.data)
   const teamAnchors = $('#header_team_nav li:not(#add_team_option) a').toArray()
-  const teams: ITeam[] = teamAnchors
+  const teams: ITeam[] = <ITeam[]> teamAnchors
     .map(_anchor => {
       const anchor  = $(_anchor)
       const href    = anchor.attr('href')

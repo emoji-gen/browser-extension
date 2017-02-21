@@ -8,7 +8,9 @@ const ptero = new Ptero(document.body)
 
 export function getAppName() {
   const element = document.querySelector('meta[name="app:name"]')
-  return element.getAttribute('content')
+  if (element) {
+    return element.getAttribute('content')
+  }
 }
 
 export function attach() {
