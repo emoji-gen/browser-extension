@@ -61,7 +61,7 @@
     "cheerio": "^0.22.0",
     "clone-into": "^0.1.0",
     "karma-growl-reporter": "^1.0.0",
-    "ptero": "^0.1.1",
+    "ptero": "^0.2.0",
     "voca": "^1.2.0"
   }
 }
