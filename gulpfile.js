@@ -84,9 +84,11 @@ gulp.task('tslint', () =>
 function runWebpack(opt, cb) {
   const defaults = [
     '--colors',
-    '--progress',
     '--display-chunks',
   ]
+  if (!process.env.CI) {
+    defaults.push('--progress')
+  }
   opt = _.union(opt, defaults)
 
   const message = 'Run webpack with options `' + opt.join(' ') + '`'
