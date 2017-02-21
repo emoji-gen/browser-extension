@@ -2,6 +2,7 @@
 
 import {expect} from 'chai'
 import * as sinon from 'sinon'
+import * as _ from 'lodash'
 
 import * as ev from '../../src/event'
 import * as util from '../../src/content_scripts/util'
@@ -13,11 +14,15 @@ describe('getAppName', () => {
     element = document.createElement('meta')
     element.name    = 'app:name'
     element.content = 'XXX-App-Name'
-    document.querySelector('head').appendChild(element)
+
+    const head = document.querySelector('head')
+    if (head) { head.appendChild(element) }
   })
 
   afterEach(() => {
-    element.parentElement.removeChild(element)
+    if (element.parentElement) {
+      element.parentElement.removeChild(element)
+    }
   })
 
   it('# can get app name', () => {
@@ -49,7 +54,7 @@ describe('listenCustomEvent', () => {
   beforeEach(() => {
     sandbox = sinon.sandbox.create()
 
-    window['chrome'] = undefined
+    ;(window as any).chrome = undefined
     sandbox.stub(window, 'chrome', {
       runtime: {
         sendMessage: function(detail: any, response: (detail: any) => void) {
@@ -64,7 +69,7 @@ describe('listenCustomEvent', () => {
   })
 
   it('# can listen custom event', () => {
-    let callbackEvent: CustomEvent
+    let callbackEvent: CustomEvent | null = null
     document.body.addEventListener(
       ev.CE_SEARCH_JOINED_TEAMS_DONE,
       (e: CustomEvent) => { callbackEvent = e }
@@ -78,7 +83,7 @@ describe('listenCustomEvent', () => {
     const ce = new CustomEvent(ev.CE_SEARCH_JOINED_TEAMS, { detail: 'foo' })
     document.body.dispatchEvent(ce)
 
-    expect(callbackEvent.detail).to.deep.equal({
+    expect(_.get(callbackEvent, 'detail')).to.deep.equal({
       type: ev.CE_SEARCH_JOINED_TEAMS,
       detail: 'foo',
     })

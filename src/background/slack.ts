@@ -17,7 +17,7 @@ export async function searchJoinedTeams(): Promise<ITeam[]> {
 
   const $ = cheerio.load(res.data)
   const teamAnchors = $('#header_team_nav li:not(#add_team_option) a').toArray()
-  const teams: ITeam[] = <ITeam[]> teamAnchors
+  const teams: ITeam[] = teamAnchors
     .map(_anchor => {
       const anchor  = $(_anchor)
       const href    = anchor.attr('href')
@@ -30,7 +30,7 @@ export async function searchJoinedTeams(): Promise<ITeam[]> {
         }
       }
     })
-    .filter(team => !!team)
+    .filter(team => !!team) as ITeam[]
 
   if (_DEBUG) {
     console.log('teams', teams)

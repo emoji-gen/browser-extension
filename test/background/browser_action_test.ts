@@ -15,7 +15,7 @@ describe('addListener', () => {
     addListener = sinon.spy()
     create      = sinon.spy()
 
-    window['chrome'] = undefined
+    ;(window as any).chrome = undefined
     sandbox.stub(window, 'chrome', {
       browserAction: {
         onClicked: { addListener },
