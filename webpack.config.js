@@ -3,7 +3,6 @@
 const path    = require('path')
 const webpack = require('webpack')
 
-const WebpackFailPlugin     = require('webpack-fail-plugin')
 const WebpackNotifierPlugin = require('webpack-notifier')
 
 const isWatch = ~process.argv.indexOf('--watch')
@@ -17,13 +16,11 @@ const plugins = [
 
 if (!isWatch) {
   plugins.push(
-    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: { warnings: false },
       sourceMap: false,
-    }),
-    WebpackFailPlugin
+    })
   )
 }
 
@@ -37,33 +34,27 @@ module.exports = {
     filename: './dist/[name].bundle.js',
   },
   resolve: {
-    extensions: ['', '.ts', '.tsx', '.js', 'jsx'],
-    modulesDirectories: ['node_modules'],
+    extensions: ['.ts', '.tsx', '.js', 'jsx'],
     alias: {
       'sinon': 'sinon/pkg/sinon',
     },
   },
   module: {
-    noParse: [
-      /sinon/,
-    ],
-    loaders: [
+    noParse: [ /sinon/ ],
+    rules: [
       {
         test: /sinon.*\.js$/,
-        loader: 'imports?define=>false,require=>false',
+        use: 'imports-loader?define=>false,require=>false',
       },
       {
         test: /\.tsx?$/,
-        loader: 'ts',
+        use: 'ts-loader',
       },
       {
         test: /\.json$/,
-        loader: 'json',
+        use: 'json-loader',
       },
     ],
-  },
-  browsers: {
-    fs: false
   },
   plugins,
   watchOptions: {
