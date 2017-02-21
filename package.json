@@ -22,6 +22,7 @@
     "@types/chai": "^3.4.34",
     "@types/cheerio": "^0.17.31",
     "@types/chrome": "^0.0.38",
+    "@types/lodash": "^4.14.52",
     "@types/mocha": "^2.2.38",
     "@types/sinon": "^1.16.34",
     "@types/voca": "^1.2.0",
