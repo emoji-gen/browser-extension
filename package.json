@@ -18,6 +18,13 @@
     "url": "https://github.com/pine/Emoji-ChromeExtension/issues"
   },
   "homepage": "https://github.com/pine/Emoji-ChromeExtension#readme",
+  "dependencies": {
+    "axios": "^0.15.3",
+    "cheerio": "^0.22.0",
+    "clone-into": "^0.1.0",
+    "ptero": "^0.2.0",
+    "voca": "^1.2.0"
+  },
   "devDependencies": {
     "@types/chai": "^3.4.34",
     "@types/cheerio": "^0.17.31",
@@ -45,6 +52,7 @@
     "karma-phantomjs-launcher": "^1.0.2",
     "karma-phantomjs-shim": "^1.4.0",
     "karma-webpack": "^2.0.1",
+    "karma-growl-reporter": "^1.0.0",
     "lodash": "^4.17.4",
     "mocha": "^3.2.0",
     "phantomjs-prebuilt": "^2.1.14",
@@ -55,13 +63,5 @@
     "typescript": "^2.1.5",
     "webpack": ">= 2.2.1 <3.0.0",
     "webpack-notifier": "^1.5.0"
-  },
-  "dependencies": {
-    "axios": "^0.15.3",
-    "cheerio": "^0.22.0",
-    "clone-into": "^0.1.0",
-    "karma-growl-reporter": "^1.0.0",
-    "ptero": "^0.2.0",
-    "voca": "^1.2.0"
   }
 }
