@@ -1,0 +1,32 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/workspace
+    docker:
+      - image: node:6.9.4
+
+    steps:
+      - checkout
+      - restore_cache:
+          key: Emoji-BrowserExtension-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      - run:
+          name: System information
+          command: |
+            echo "Node $(node -v)"
+            echo "Yarn v$(yarn --version)"
+      - run:
+          name: Install dependencies
+          command: |
+            yarn
+            yarn add --force --dev phantomjs-prebuilt
+      - run:
+          name: Build
+          command: yarn run build
+      - run:
+          name: Test
+          command: yarn test
+      - save_cache:
+          key: Emoji-BrowserExtension-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/workspace/node_modules
+            - ~/.cache/yarn/
