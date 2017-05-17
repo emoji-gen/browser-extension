@@ -21,7 +21,9 @@ Next, please load `dist` directory  as browser extension on Chrome.
 Microsoft Edge is not supported, because Edge's WebExtensions support is incomplete.
 
 - Google Chrome
-- Firefox (*experimental*)
+  - https://chrome.google.com/webstore/detail/ghbhakkknnmocmiilhneahbkiaegdnmf?hl=ja&gl=JP
+- Firefox
+  - https://addons.mozilla.org/ja/firefox/addon/emoji-generator/
 
 ## License
 
