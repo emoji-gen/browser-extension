@@ -2,6 +2,8 @@
 
 :tada: Ultimate Browser Extension
 
+<img src="pr/ss1.png" width="320" height="200" alt=""> <img src="pr/ss2.png" width="320" height="200" alt="">
+
 ## Requirements
 
 - Node `$(cat .node-version)`
