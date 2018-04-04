@@ -12,6 +12,7 @@
     "one-line": false,
     "switch-default": false,
     "variable-name": [true, "allow-leading-underscore"],
+    "no-string-literal": false,
     "no-string-throw": false
   }
 }
