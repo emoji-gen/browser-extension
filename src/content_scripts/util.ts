@@ -6,6 +6,13 @@ import * as ev from '../event'
 
 const ptero = new Ptero(document.body)
 
+export function getAppId() {
+  const element = document.querySelector('body')
+  if (element) {
+    return element.dataset.appId
+  }
+}
+
 export function getAppName() {
   const element = document.querySelector('meta[name="app:name"]')
   if (element) {
