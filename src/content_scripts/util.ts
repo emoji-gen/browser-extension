@@ -9,7 +9,7 @@ const ptero = new Ptero(document.body)
 export function getAppId() {
   const element = document.querySelector('body')
   if (element) {
-    return element.dataset.appId
+    return element.dataset['appId']
   }
 }
 
