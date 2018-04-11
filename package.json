@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pine/Emoji-ChromeExtension.git"
+    "url": "git+https://github.com/emoji-gen/browser-extension.git"
   },
-  "author": "Pine Mizune",
+  "author": "Emoji Generator",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pine/Emoji-ChromeExtension/issues"
+    "url": "https://github.com/emoji-gen/browser-extension/issues"
   },
-  "homepage": "https://github.com/pine/Emoji-ChromeExtension#readme",
+  "homepage": "https://github.com/emoji-gen/browser-extension",
   "dependencies": {
     "axios": "^0.16.1",
     "cheerio": "^0.22.0",
