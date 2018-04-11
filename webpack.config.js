@@ -5,7 +5,10 @@ const webpack = require('webpack')
 
 const WebpackNotifierPlugin = require('webpack-notifier')
 
-const isWatch = ~process.argv.indexOf('--watch')
+const isDev = ~process.argv.indexOf('--watch')
+const mode = isDev ? 'development' : 'production'
+console.log('Mode:', mode)
+
 const plugins = [
   new webpack.NormalModuleReplacementPlugin(
     /sinon/,
@@ -14,17 +17,19 @@ const plugins = [
   new WebpackNotifierPlugin({ alwaysNotify: true })
 ]
 
-if (!isWatch) {
-  plugins.push(
-    new webpack.optimize.AggressiveMergingPlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: { warnings: false },
-      sourceMap: false,
-    })
-  )
-}
+// if (!isWatch) {
+//   plugins.push(
+//     new webpack.optimize.AggressiveMergingPlugin(),
+//     new webpack.optimize.UglifyJsPlugin({
+//       compress: { warnings: false },
+//       sourceMap: false,
+//     })
+//   )
+// }
 
 module.exports = {
+  mode,
+
   context: __dirname,
   entry: {
     'content_scripts': './src/content_scripts',
@@ -34,7 +39,7 @@ module.exports = {
     filename: './dist/[name].bundle.js',
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', 'jsx'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
     alias: {
       'sinon': 'sinon/pkg/sinon',
     },
@@ -49,10 +54,6 @@ module.exports = {
       {
         test: /\.tsx?$/,
         use: 'ts-loader',
-      },
-      {
-        test: /\.json$/,
-        use: 'json-loader',
       },
     ],
   },
