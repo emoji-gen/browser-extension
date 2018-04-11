@@ -1,5 +1,5 @@
 {
-  "name": "emoji-chrome-extension",
+  "name": "browser-extension",
   "version": "0.3.4",
   "description": "Ultimate Browser Extension for Emoji Generator",
   "main": "index.js",
