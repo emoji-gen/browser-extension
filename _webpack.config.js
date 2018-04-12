@@ -36,7 +36,8 @@ module.exports = {
     'background': './src/background',
   },
   output: {
-    filename: './dist/[name].bundle.js',
+    filename: '[name].bundle.js',
+    path: join(__dirname, 'dist'),
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
@@ -58,7 +59,25 @@ module.exports = {
     ],
   },
   plugins,
+
+  // Watch and WatchOptions
+  //~~~~~~~~~~~~~~~~~~~~~~~~~
   watchOptions: {
     poll: true,
   },
+
+  // Performance
+  //~~~~~~~~~~~~~~~
+  performance: {
+    hints: false,
+  },
+
+  // Stats
+  //~~~~~~~~
+  stats: {
+    entrypoints: true,
+    children: false,
+    modules: false,
+  },
+
 }
