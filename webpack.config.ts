@@ -5,30 +5,11 @@ import { join } from 'path'
 import * as webpack from 'webpack'
 import * as OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin'
 import * as UglifyJsPlugin from 'uglifyjs-webpack-plugin'
-
-// const WebpackNotifierPlugin = require('webpack-notifier')
+import * as WebpackNotifierPlugin from 'webpack-notifier'
 
 const isDev = process.argv.indexOf('--watch') > -1
 const mode = isDev ? 'development' : 'production'
 console.log('Mode:', mode)
-
-// const plugins = [
-//   new webpack.NormalModuleReplacementPlugin(
-//     /sinon/,
-//     `${__dirname}/node_modules/sinon/pkg/sinon.js`
-//   ),
-//   new WebpackNotifierPlugin({ alwaysNotify: true })
-// ]
-
-// if (!isWatch) {
-//   plugins.push(
-//     new webpack.optimize.AggressiveMergingPlugin(),
-//     new webpack.optimize.UglifyJsPlugin({
-//       compress: { warnings: false },
-//       sourceMap: false,
-//     })
-//   )
-// }
 
 const configuration: webpack.Configuration = {
   mode,
@@ -57,6 +38,7 @@ const configuration: webpack.Configuration = {
     ],
   },
 
+
   // Resolve
   //~~~~~~~~~~~
   resolve: {
@@ -65,6 +47,7 @@ const configuration: webpack.Configuration = {
       'sinon': 'sinon/pkg/sinon',
     },
   },
+
 
   // Optimization and Plugins
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -78,14 +61,16 @@ const configuration: webpack.Configuration = {
       new OptimizeCSSAssetsPlugin({}),
     ]
   },
-  // plugins: [
-  //   new webpack.DefinePlugin({
-  //     DEBUG: JSON.stringify(isDev),
-  //   }),
-  //   new MiniCssExtractPlugin({
-  //     filename: 'public/css/[name].bundle.css',
-  //   }),
-  // ],
+  plugins: [
+    new webpack.DefinePlugin({
+      _DEBUG: JSON.stringify(isDev),
+    }),
+    new webpack.NormalModuleReplacementPlugin(
+      /sinon/,
+      `${__dirname}/node_modules/sinon/pkg/sinon.js`
+    ),
+    new WebpackNotifierPlugin({ alwaysNotify: true }),
+  ],
 
 
   // Watch and WatchOptions
@@ -94,17 +79,22 @@ const configuration: webpack.Configuration = {
     poll: true,
   },
 
+
   // Performance
   //~~~~~~~~~~~~~~~
   performance: {
     hints: false,
   },
 
+
   // Stats
   //~~~~~~~~
   stats: {
     entrypoints: true,
     children: false,
+    chunks: false,
+    chunkModules: false,
+    chunkOrigins: false,
     modules: false,
   },
 

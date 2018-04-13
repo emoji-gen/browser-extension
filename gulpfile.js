@@ -35,21 +35,6 @@ gulp.task('clean', cb => {
 })
 
 
-// ----- env ------------------------------------------------------------------
-
-gulp.task('env', () =>
-  gulp.src('./src/env.js.mustache')
-    .pipe($.plumber())
-    .pipe($.mustache({ isDev: isWatch }))
-    .pipe($.rename({ extname: '' }))
-    .pipe(gulp.dest('./dist'))
-)
-
-gulp.task('env-watch', () => {
-  gulp.watch('./src/env.js.mustache', ['env'])
-})
-
-
 // ----- manifest -------------------------------------------------------------
 
 gulp.task('manifest', () =>
@@ -82,10 +67,7 @@ gulp.task('tslint', () =>
 // ----- webpack --------------------------------------------------------------
 
 function runWebpack(opt, cb) {
-  const defaults = [
-    '--colors',
-    '--display-chunks',
-  ]
+  const defaults = ['--colors']
   if (!process.env.CI) {
     defaults.push('--progress')
   }
@@ -163,7 +145,6 @@ gulp.task('build-watch', cb => {
   runSequence(
     [
       'assets',
-      'env',
       'manifest',
     ],
     cb
@@ -178,7 +159,6 @@ gulp.task('watch', cb => {
     ],
     [
       'assets-watch',
-      'env-watch',
       'manifest-watch',
       'webpack-watch',
     ],
