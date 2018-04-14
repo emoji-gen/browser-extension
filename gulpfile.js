@@ -127,7 +127,6 @@ gulp.task('build-prod', cb => {
     'clean',
     [
       'assets',
-      'env',
       'manifest',
       'webpack-prod',
     ],

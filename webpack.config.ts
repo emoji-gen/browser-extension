@@ -14,16 +14,23 @@ console.log('Mode:', mode)
 const configuration: webpack.Configuration = {
   mode,
 
+  // Entry and Context
+  //~~~~~~~~~~~~~~~~~~~~~~~
   context: __dirname,
   entry: {
     'content_scripts': './src/content_scripts',
     'background': './src/background',
   },
+
+  // Output
+  //~~~~~~~~~~
   output: {
     filename: '[name].bundle.js',
     path: join(__dirname, 'dist'),
   },
 
+  // Module
+  //~~~~~~~~~~~
   module: {
     noParse: [ /sinon/ ],
     rules: [
@@ -38,7 +45,6 @@ const configuration: webpack.Configuration = {
     ],
   },
 
-
   // Resolve
   //~~~~~~~~~~~
   resolve: {
@@ -47,7 +53,6 @@ const configuration: webpack.Configuration = {
       'sinon': 'sinon/pkg/sinon',
     },
   },
-
 
   // Optimization and Plugins
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -72,20 +77,17 @@ const configuration: webpack.Configuration = {
     new WebpackNotifierPlugin({ alwaysNotify: true }),
   ],
 
-
   // Watch and WatchOptions
   //~~~~~~~~~~~~~~~~~~~~~~~~~
   watchOptions: {
     poll: true,
   },
 
-
   // Performance
   //~~~~~~~~~~~~~~~
   performance: {
     hints: false,
   },
-
 
   // Stats
   //~~~~~~~~
@@ -97,7 +99,6 @@ const configuration: webpack.Configuration = {
     chunkOrigins: false,
     modules: false,
   },
-
 }
 
 module.exports = configuration
