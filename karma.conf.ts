@@ -67,7 +67,7 @@ module.exports = function(config) {
     // how many browser should be started simultaneous
     concurrency: Infinity,
 
-    webpack: require('./webpack.config.js'),
+    webpack: require('./webpack.config'),
     webpackMiddleware: {
       noInfo: true,
     },
