@@ -21,9 +21,7 @@ jobs:
             apt install -q -y chromium
       - run:
           name: Install dependencies
-          command: |
-            yarn
-            yarn add --force --dev phantomjs-prebuilt
+          command: yarn
       - run:
           name: Build
           command: yarn run build

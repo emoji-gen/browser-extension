@@ -4,7 +4,7 @@ module.exports = config => {
   config.set({
     autoWatch: true,
     basePath: '',
-    browsers: ['ChromeHeadless'],
+    browsers: [ process.env.CI ? 'ChromiumHeadless' : 'ChromeHeadless' ],
     colors: true,
     concurrency: Infinity,
     exclude: [
