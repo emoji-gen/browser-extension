@@ -8,7 +8,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: Emoji-BrowserExtension-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          key: browser-extension-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: System information
           command: |
@@ -26,7 +26,7 @@ jobs:
           name: Test
           command: yarn test
       - save_cache:
-          key: Emoji-BrowserExtension-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          key: browser-extension-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths:
             - ~/workspace/node_modules
             - ~/.cache/yarn/
