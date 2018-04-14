@@ -36,7 +36,13 @@ const configuration: webpack.Configuration = {
     rules: [
       {
         test: /sinon.*\.js$/,
-        use: 'imports-loader?define=>false,require=>false',
+        use: {
+          loader: 'imports-loader',
+          options: {
+            define: false,
+            require: false,
+          },
+        },
       },
       {
         test: /\.tsx?$/,
