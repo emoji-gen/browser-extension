@@ -15,11 +15,10 @@ jobs:
             echo "Node $(node -v)"
             echo "Yarn v$(yarn --version)"
       - run:
-          name: Install Google Chrome
+          name: Install Chromium
           command: |
-            wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-            dpkg -i google-chrome*.deb
-            apt --fix-broken install
+            apt update -q -y
+            apt install -q -y chromium
       - run:
           name: Install dependencies
           command: |
