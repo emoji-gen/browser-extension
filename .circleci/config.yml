@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/workspace
     docker:
-      - image: node:6.10.0
+      - image: node:8.11.1
 
     steps:
       - checkout
