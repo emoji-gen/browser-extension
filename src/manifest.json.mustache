@@ -47,8 +47,10 @@
     "*://localhost/*",
     {{/isDev}}
     "*://emoji.pine.moe/*",
+    "https://emoji-gen.ninja/*",
     "https://*.slack.com/*"
   ],
   "web_accessible_resources": [
-  ]
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }
