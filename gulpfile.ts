@@ -128,7 +128,7 @@ gulp.task('zip-archive', () =>
    ], { base: '.' })
      .pipe(zip('source.zip'))
      .pipe(gulp.dest('.'))
- )
+)
 
 gulp.task('zip', gulp.parallel('zip-archive', 'zip-source'))
 
