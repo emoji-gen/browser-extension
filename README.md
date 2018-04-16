@@ -1,5 +1,8 @@
 ## Browser Extension for Emoji Generator
-[![CircleCI](https://circleci.com/gh/emoji-gen/browser-extension/tree/master.svg?style=shield)](https://circleci.com/gh/emoji-gen/browser-extension/tree/master) [![dependencies Status](https://david-dm.org/emoji-gen/browser-extension/status.svg)](https://david-dm.org/emoji-gen/browser-extension) [![devDependencies Status](https://david-dm.org/emoji-gen/browser-extension/dev-status.svg)](https://david-dm.org/emoji-gen/browser-extension?type=dev)
+[![CircleCI](https://circleci.com/gh/emoji-gen/browser-extension/tree/master.svg?style=shield)](https://circleci.com/gh/emoji-gen/browser-extension/tree/master)
+[![dependencies Status](https://david-dm.org/emoji-gen/browser-extension/status.svg)](https://david-dm.org/emoji-gen/browser-extension)
+[![devDependencies Status](https://david-dm.org/emoji-gen/browser-extension/dev-status.svg)](https://david-dm.org/emoji-gen/browser-extension?type=dev)
+[![Greenkeeper badge](https://badges.greenkeeper.io/emoji-gen/browser-extension.svg)](https://greenkeeper.io/)
 
 :tada: Ultimate Browser Extension
 
