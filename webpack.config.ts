@@ -6,10 +6,10 @@ import * as webpack from 'webpack'
 import * as OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin'
 import * as UglifyJsPlugin from 'uglifyjs-webpack-plugin'
 import * as WebpackNotifierPlugin from 'webpack-notifier'
+import * as EventHooksPlugin from 'event-hooks-webpack-plugin'
 
 const isDev = process.argv.indexOf('--watch') > -1
 const mode = isDev ? 'development' : 'production'
-console.log('Mode:', mode)
 
 const configuration: webpack.Configuration = {
   mode,
@@ -75,6 +75,10 @@ const configuration: webpack.Configuration = {
       `${__dirname}/node_modules/sinon/pkg/sinon.js`
     ),
     new WebpackNotifierPlugin({ alwaysNotify: true }),
+    new EventHooksPlugin({
+      run: () => console.log('Mode:', mode),
+      watchRun: () => console.log('Mode:', mode),
+    }),
   ],
 
   // Watch and WatchOptions
