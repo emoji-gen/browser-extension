@@ -6,28 +6,28 @@ import * as sinon from 'sinon'
 import * as browserAction from '../../src/background/browser_action'
 
 describe('addListener', () => {
-  let sandbox: sinon.SinonSandbox
   let addListener: sinon.SinonSpy
   let create: sinon.SinonSpy
 
   beforeEach(() => {
-    sandbox     = sinon.sandbox.create()
     addListener = sinon.spy()
-    create      = sinon.spy()
+    create = sinon.spy()
 
-    ;(window as any).chrome = undefined
-    sandbox.stub(window, 'chrome', {
+    const wind = window as any
+    wind.chrome = {
       browserAction: {
         onClicked: { addListener },
       },
       tabs: { create },
-    })
+    }
   })
 
   afterEach(() => {
     addListener.reset()
     create.reset()
-    sandbox.restore()
+
+    const wind = window as any
+    wind.chrome = undefined
   })
 
   it('should register listener function', () => {
