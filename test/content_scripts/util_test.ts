@@ -30,6 +30,20 @@ describe('getAppName', () => {
   })
 })
 
+describe('getAppId', () => {
+  beforeEach(() => {
+    document.body.setAttribute('data-app-id', '12345')
+  })
+
+  afterEach(() => {
+    document.body.removeAttribute('data-app-id')
+  })
+
+  it('# can get app id', () => {
+    expect(util.getAppId()).to.be.equal('12345x')
+  })
+})
+
 describe('attach', () => {
   let listener: sinon.SinonSpy
 
