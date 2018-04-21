@@ -10,7 +10,7 @@ import * as jsonminify from 'gulp-jsonminify'
 import * as mustache from 'gulp-mustache'
 import * as plumber from 'gulp-plumber'
 import * as rename from 'gulp-rename'
-import * as tslint from 'gulp-tslint'
+import tslint from 'gulp-tslint'
 import * as zip from 'gulp-zip'
 
 import * as del from 'del'
@@ -78,7 +78,7 @@ gulp.task('tslint', () =>
 
 // ----- webpack --------------------------------------------------------------
 
-function runWebpack(opt, cb) {
+function runWebpack(opt: string[], cb: (err: any) => void) {
   const defaults = ['--colors']
   if (!process.env.CI) {
     defaults.push('--progress')
@@ -95,7 +95,7 @@ function runWebpack(opt, cb) {
 }
 
 gulp.task('webpack-prod', cb => {
-  runWebpack([], cb);
+  runWebpack([], cb)
 })
 
 gulp.task('webpack-watch', cb => {

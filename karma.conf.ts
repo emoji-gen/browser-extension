@@ -1,6 +1,8 @@
 'use strict'
 
-module.exports = config => {
+import * as karma from 'karma'
+
+module.exports = (config: karma.Config) => {
   config.set({
     autoWatch: true,
     basePath: '',
