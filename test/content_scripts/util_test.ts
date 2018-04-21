@@ -40,7 +40,7 @@ describe('getAppId', () => {
   })
 
   it('# can get app id', () => {
-    expect(util.getAppId()).to.be.equal('12345x')
+    expect(util.getAppId()).to.be.equal('12345')
   })
 })
 
