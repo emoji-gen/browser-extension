@@ -26,7 +26,7 @@ const configuration: webpack.Configuration = {
   //~~~~~~~~~~
   output: {
     filename: '[name].bundle.js',
-    path: join(__dirname, 'dist'),
+    path: join(__dirname, 'dist/extension'),
   },
 
   // Module

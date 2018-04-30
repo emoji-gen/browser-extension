@@ -32,7 +32,7 @@ const isDev = process.argv.indexOf('watch') > -1
 
 gulp.task('assets', () =>
   gulp.src('./assets/**/*')
-    .pipe(gulp.dest('./dist'))
+    .pipe(gulp.dest('./dist/extension'))
 )
 
 gulp.task('assets-watch', () =>
@@ -58,7 +58,7 @@ gulp.task('manifest', () =>
     }))
     .pipe(rename({ extname: '' }))
     .pipe(_if(!isDev, jsonminify()))
-    .pipe(gulp.dest('./dist'))
+    .pipe(gulp.dest('./dist/extension'))
 )
 
 gulp.task('manifest-watch', () => {
@@ -106,9 +106,9 @@ gulp.task('webpack-watch', cb => {
 // ----- zip ------------------------------------------------------------------
 
 gulp.task('zip-archive', () =>
-  gulp.src('dist/**/*')
+  gulp.src('dist/extension/**/*')
     .pipe(zip('archive.zip'))
-    .pipe(gulp.dest('.'))
+    .pipe(gulp.dest('dist'))
 )
 
  gulp.task('zip-source', () =>
@@ -127,7 +127,7 @@ gulp.task('zip-archive', () =>
      'LICENSE',
    ], { base: '.' })
      .pipe(zip('source.zip'))
-     .pipe(gulp.dest('.'))
+     .pipe(gulp.dest('dist'))
 )
 
 gulp.task('zip', gulp.parallel('zip-archive', 'zip-source'))

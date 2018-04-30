@@ -22,7 +22,7 @@ $ yarn start     # for development
 $ yarn run build # for production
 ```
 
-Next, please load `dist` directory as browser extension on Chrome or Firefox.
+Next, please load `dist/extension` directory as browser extension on Chrome or Firefox.
 
 ## Supported Browsers
 Microsoft Edge is not supported, because Edge's WebExtensions support is incomplete.
