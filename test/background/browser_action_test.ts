@@ -23,8 +23,8 @@ describe('addListener', () => {
   })
 
   afterEach(() => {
-    addListener.reset()
-    create.reset()
+    addListener.resetHistory()
+    create.resetHistory()
 
     const wind = window as any
     wind.chrome = undefined
