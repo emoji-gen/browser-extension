@@ -34,4 +34,4 @@ Microsoft Edge is not supported, because Edge's WebExtensions support is incompl
 
 ## License
 
-MIT &copy; [Emoji Generator](https://emoji.pine.moe/)
+MIT &copy; [Emoji Generator](https://emoji-gen.ninja/)
