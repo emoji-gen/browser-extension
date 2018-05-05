@@ -6,9 +6,15 @@ module.exports = (config: karma.Config) => {
   config.set({
     autoWatch: true,
     basePath: '',
-    browsers: [ process.env.CI ? 'ChromiumHeadless' : 'ChromeHeadless' ],
+    browsers: [ process.env.CI ? 'ChromiumHeadless_without_security' : 'ChromeHeadless' ],
     colors: true,
     concurrency: Infinity,
+    customLaunchers: {
+      ChromiumHeadless_without_security: {
+        base: 'ChromiumHeadless',
+        flags: ['--no-sandbox', '--disable-setuid-sandbox'],
+      },
+    },
     exclude: [
     ],
     frameworks: ['mocha'],
