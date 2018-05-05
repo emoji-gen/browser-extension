@@ -43,7 +43,7 @@ describe('addListener', () => {
 
     assert.ok(create.called)
     assert.deepEqual(create.args[0][0], {
-      url: 'https://emoji.pine.moe',
+      url: 'https://emoji-gen.ninja',
     })
   })
 })
