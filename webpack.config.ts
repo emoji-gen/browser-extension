@@ -9,7 +9,6 @@ import * as WebpackNotifierPlugin from 'webpack-notifier'
 import * as EventHooksPlugin from 'event-hooks-webpack-plugin'
 
 const isDev = process.argv.indexOf('--watch') > -1
-const isCI = !!process.env.CI
 const mode = isDev ? 'development' : 'production'
 
 const configuration: webpack.Configuration = {
@@ -102,7 +101,7 @@ const configuration: webpack.Configuration = {
     chunks: false,
     chunkModules: false,
     chunkOrigins: false,
-    colors: !isCI,
+    colors: true,
     modules: false,
   },
 }
