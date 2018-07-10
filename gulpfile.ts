@@ -78,17 +78,11 @@ gulp.task('tslint', () =>
 
 // ----- webpack --------------------------------------------------------------
 
-function runWebpack(opt: string[], cb: (err: any) => void) {
-  const defaults = ['--colors']
-  if (!process.env.CI) {
-    defaults.push('--progress')
-  }
-  opt = _.union(opt, defaults)
-
-  const message = 'Run webpack with options `' + opt.join(' ') + '`'
+function runWebpack(opts: string[], cb: (err: any) => void) {
+  const message = 'Run webpack with options `' + opts.join(' ') + '`'
   gutil.log(message)
 
-  const cmd = 'webpack ' + opt.join(' ')
+  const cmd = 'webpack ' + opts.join(' ')
   const child = exec(cmd, cb)
   child.stdout.on('data', data => process.stdout.write(data))
   child.stderr.on('data', data => process.stderr.write(data))
@@ -99,7 +93,7 @@ gulp.task('webpack-prod', cb => {
 })
 
 gulp.task('webpack-watch', cb => {
-  runWebpack(['--watch'], cb)
+  runWebpack(['--watch --progress'], cb)
 })
 
 
