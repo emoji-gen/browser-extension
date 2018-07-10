@@ -166,7 +166,7 @@ gulp.task('karma', cb => {
     configFile: `${__dirname}/karma.conf.ts`,
     singleRun: true
   })
-  server.on('run_complete', function(browsers, results) {
+  server.on('run_complete', (browsers, results) => {
     cb(results.error ? 'There are test failures' : null)
   })
   server.start()
