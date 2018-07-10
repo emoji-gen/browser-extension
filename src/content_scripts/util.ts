@@ -1,7 +1,7 @@
 'use strict'
 
 import {Ptero} from 'ptero'
-import cloneInto = require('clone-into')
+import * as cloneInto from 'clone-into'
 import * as ev from '../event'
 
 const ptero = new Ptero(document.body)
