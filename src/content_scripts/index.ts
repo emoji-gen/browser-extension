@@ -3,7 +3,6 @@
 import * as ev from '../event'
 import * as util from './util'
 
-const APP_NAME = 'Emoji-Web'
 const APP_ID = 'j1g3xUDxVmwWCCKqibVQCZOHNpvnSMBY'
 
 function main() {
@@ -11,9 +10,8 @@ function main() {
     console.log('Start background scripts')
   }
 
-  const appName = util.getAppName()
   const appId = util.getAppId()
-  if (appName === APP_NAME || appId === APP_ID) {
+  if (appId === APP_ID) {
     chrome.runtime.sendMessage({ type: ev.CE_ATTACH }, response => {
       if (_DEBUG) {
         console.log('attach to Webpage', response)

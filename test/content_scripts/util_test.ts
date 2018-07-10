@@ -7,29 +7,6 @@ import * as _ from 'lodash'
 import * as ev from '../../src/event'
 import * as util from '../../src/content_scripts/util'
 
-describe('getAppName', () => {
-  let element: HTMLMetaElement
-
-  beforeEach(() => {
-    element = document.createElement('meta')
-    element.name    = 'app:name'
-    element.content = 'XXX-App-Name'
-
-    const head = document.querySelector('head')
-    if (head) { head.appendChild(element) }
-  })
-
-  afterEach(() => {
-    if (element.parentElement) {
-      element.parentElement.removeChild(element)
-    }
-  })
-
-  it('# can get app name', () => {
-    expect(util.getAppName()).to.be.equal('XXX-App-Name')
-  })
-})
-
 describe('getAppId', () => {
   beforeEach(() => {
     document.body.setAttribute('data-app-id', '12345')

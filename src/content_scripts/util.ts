@@ -13,13 +13,6 @@ export function getAppId() {
   }
 }
 
-export function getAppName() {
-  const element = document.querySelector('meta[name="app:name"]')
-  if (element) {
-    return element.getAttribute('content')
-  }
-}
-
 export function attach() {
   ptero.emit(ev.CE_ATTACH, { contents: null })
 }
