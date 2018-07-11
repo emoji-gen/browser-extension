@@ -1,6 +1,5 @@
 'use strict'
 
-import axios from 'axios'
 import * as cheerio from 'cheerio'
 import * as v from 'voca'
 
@@ -10,12 +9,16 @@ export interface ITeam {
 }
 
 export async function searchJoinedTeams(): Promise<ITeam[]> {
-  const res = await axios.get('https://slack.com/customize/emoji')
+  const res = await fetch('https://slack.com/customize/emoji', {
+    mode: 'cors',
+    credentials: 'include',
+  })
+  const body = await res.text()
   if (_DEBUG) {
     console.log(res)
   }
 
-  const $ = cheerio.load(res.data)
+  const $ = cheerio.load(body)
   const teamAnchors = $('#header_team_nav li:not(#add_team_option) a').toArray()
   const teams: ITeam[] = teamAnchors
     .map(_anchor => {
@@ -47,15 +50,22 @@ export async function registerEmoji(
   if (!url) { throw 'Invalid Emoji URL' }
 
   // fetch emoji image data
-  const image = await axios.get(url, { responseType: 'blob' })
+  const image = await fetch(url, {
+    mode: 'cors',
+    credentials: 'include',
+  })
+  const imageData = await image.blob()
   if (_DEBUG) { console.log(image) }
 
   // fetch initial form data
   const actionUrl = `https://${teamdomain}.slack.com/customize/emoji`
-  const customize = await axios.get(actionUrl)
+  const customize = await fetch(actionUrl, {
+    mode: 'cors',
+    credentials: 'include',
+  })
   if (_DEBUG) { console.log(customize) }
 
-  let $ = cheerio.load(customize.data)
+  let $ = cheerio.load(await customize.text())
   const form  = $('#addemoji')
   const pairs = form.serializeArray()
   if (_DEBUG) { console.log(pairs) }
@@ -69,15 +79,19 @@ export async function registerEmoji(
       fd.append(pair.name, pair.value)
     }
   })
-  fd.append('img', image.data)
+  fd.append('img', imageData)
 
   // submit
-  const headers = { 'Content-Type': 'multipart/form-data' }
-  const result  = await axios.post(actionUrl, fd, { headers })
+  const result  = await fetch(actionUrl, {
+    method: 'POST',
+    body: fd,
+    mode: 'cors',
+    credentials: 'include',
+  })
   if (_DEBUG) { console.log(result) }
 
   // parse result message
-  $ = cheerio.load(result.data)
+  $ = cheerio.load(await result.text())
   const alertElement = $('.alert:first-of-type')
   const messages     = alertElement.text()
     .split('\n')
