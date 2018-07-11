@@ -10,8 +10,8 @@ export interface ITeam {
 
 export async function searchJoinedTeams(): Promise<ITeam[]> {
   const res = await fetch('https://slack.com/customize/emoji', {
-    mode: 'cors',
     credentials: 'include',
+    mode: 'cors',
   })
   const body = await res.text()
   if (_DEBUG) {
@@ -51,8 +51,8 @@ export async function registerEmoji(
 
   // fetch emoji image data
   const image = await fetch(url, {
-    mode: 'cors',
     credentials: 'include',
+    mode: 'cors',
   })
   const imageData = await image.blob()
   if (_DEBUG) { console.log(image) }
@@ -60,8 +60,8 @@ export async function registerEmoji(
   // fetch initial form data
   const actionUrl = `https://${teamdomain}.slack.com/customize/emoji`
   const customize = await fetch(actionUrl, {
-    mode: 'cors',
     credentials: 'include',
+    mode: 'cors',
   })
   if (_DEBUG) { console.log(customize) }
 
@@ -83,10 +83,10 @@ export async function registerEmoji(
 
   // submit
   const result  = await fetch(actionUrl, {
-    method: 'POST',
     body: fd,
-    mode: 'cors',
     credentials: 'include',
+    method: 'POST',
+    mode: 'cors',
   })
   if (_DEBUG) { console.log(result) }
 
