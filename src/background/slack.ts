@@ -8,6 +8,11 @@ export interface ITeam {
   teamdomain: string;
 }
 
+export interface IResult {
+  ok: boolean;
+  error: string;
+}
+
 export async function searchJoinedTeams(): Promise<ITeam[]> {
   const res = await fetch('https://slack.com/customize/emoji', {
     credentials: 'include',
@@ -45,7 +50,7 @@ export async function registerEmoji(
   url: string,
   text: string,
   teamdomain: string,
-  ): Promise<string>
+  ): Promise<void>
 {
   if (!url) { throw 'Invalid Emoji URL' }
 
@@ -58,52 +63,47 @@ export async function registerEmoji(
   if (_DEBUG) { console.log(image) }
 
   // fetch initial form data
-  const actionUrl = `https://${teamdomain}.slack.com/customize/emoji`
-  const customize = await fetch(actionUrl, {
+  const initialUrl = `https://${teamdomain}.slack.com/customize/emoji`
+  const initialResponse = await fetch(initialUrl, {
     credentials: 'include',
     mode: 'cors',
   })
-  if (_DEBUG) { console.log(customize) }
+  if (_DEBUG) { console.log(initialResponse) }
 
-  let $ = cheerio.load(await customize.text())
-  const form  = $('#addemoji')
-  const pairs = form.serializeArray()
-  if (_DEBUG) { console.log(pairs) }
+  // Find API token
+  const initialText = await initialResponse.text()
+  const tokenRegex = /api_token[\"\']?\s*\:\s*[\"\']([\w-]+)[\"\']/
+  const tokenMatches = tokenRegex.exec(initialText)
+  const token  = tokenMatches ? tokenMatches[1] : null
+  if (!token) { throw 'API token not found' }
+  if (_DEBUG) { console.log(token) }
 
   // create post form data
   const fd = new FormData()
-  pairs.forEach(pair => {
-    if (pair.name === 'name') {
-      fd.append(pair.name, text)
-    } else {
-      fd.append(pair.name, pair.value)
-    }
-  })
-  fd.append('img', imageData)
+  fd.append('mode', 'data')
+  fd.append('name', text)
+  fd.append('image', imageData, 'emoji.png')
+  fd.append('token', token)
 
-  // submit
-  const result  = await fetch(actionUrl, {
+  // Add emoji
+  const addUrl = `https://${teamdomain}.slack.com/api/emoji.add`
+  const addResponse  = await fetch(addUrl, {
     body: fd,
     credentials: 'include',
     method: 'POST',
     mode: 'cors',
   })
-  if (_DEBUG) { console.log(result) }
+  if (_DEBUG) { console.log(addResponse) }
 
-  // parse result message
-  $ = cheerio.load(await result.text())
-  const alertElement = $('.alert:first-of-type')
-  const messages     = alertElement.text()
-    .split('\n')
-    .map(message => v.trim(message))
-    .filter(message => message.length > 0)
-  if (_DEBUG) {
-    console.log(messages)
+  // Parse adding result
+  const resultJson = await addResponse.text()
+  let result: IResult
+  try {
+    result = JSON.parse(resultJson)
+  } catch (e) {
+    throw 'Invalid JSON syntax'
   }
 
-  if (alertElement.hasClass('alert_success') && messages.length > 0) {
-    return messages[0]
-  }
-
-  throw messages[0] || 'Unknown Error'
+  if (result.ok) { return }
+  throw result.error || 'Unknown Error'
 }

@@ -37,8 +37,8 @@ function registerEmoji(
     request.detail.teamdomain,
   )
     .then(
-      message => sendResponse({ contents: message }),
-      err     => sendResponse({ err }),
+      _ => sendResponse({ contents: 'ok' }),
+      err => sendResponse({ err }),
     )
   return true
 }
