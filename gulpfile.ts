@@ -1,7 +1,7 @@
 'use strict'
 
 import * as fs from 'fs'
-import { exec } from 'child_process'
+import { spawn } from 'child_process'
 
 import * as gulp from 'gulp'
 import * as gutil from 'gulp-util'
@@ -82,10 +82,10 @@ function runWebpack(opts: string[], cb: (err: any) => void) {
   const message = 'Run webpack with options `' + opts.join(' ') + '`'
   gutil.log(message)
 
-  const cmd = 'webpack ' + opts.join(' ')
-  const child = exec(cmd, cb)
+  const child = spawn('webpack', opts)
   child.stdout.on('data', data => process.stdout.write(data))
   child.stderr.on('data', data => process.stderr.write(data))
+  child.on('close', cb)
 }
 
 gulp.task('webpack-prod', cb => {
