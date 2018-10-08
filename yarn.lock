@@ -150,12 +150,20 @@
     "@types/webpack" "*"
     "@types/webpack-dev-middleware" "*"
 
-"@types/karma@*", "@types/karma@^1.7.3":
+"@types/karma@*":
   version "1.7.4"
   resolved "https://registry.yarnpkg.com/@types/karma/-/karma-1.7.4.tgz#27140c871d4043be78fd71635feba3b548fe3f6b"
   dependencies:
     "@types/bluebird" "*"
     "@types/node" "*"
+
+"@types/karma@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@types/karma/-/karma-3.0.0.tgz#a9406fb7e4287a7b8e31ee8eafea552676c96958"
+  dependencies:
+    "@types/bluebird" "*"
+    "@types/node" "*"
+    log4js "^3.0.0"
 
 "@types/lodash@^4.14.106":
   version "4.14.111"
