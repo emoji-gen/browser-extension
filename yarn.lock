@@ -2455,13 +2455,13 @@ gulp-match@^1.0.3:
   dependencies:
     minimatch "^3.0.3"
 
-gulp-mustache@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/gulp-mustache/-/gulp-mustache-3.0.1.tgz#642e5940b1a7162587e7685a9460ab7f725277a2"
+gulp-mustache@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/gulp-mustache/-/gulp-mustache-4.0.0.tgz#0cdd38b6cf45a21b0dad7ab13a215824ea654d7e"
   dependencies:
     escape-string-regexp "^1.0.5"
-    mustache "^2.3.0"
-    plugin-error "^0.1.2"
+    mustache "^3.0.0"
+    plugin-error "^1.0.0"
     replace-ext "^1.0.0"
     through2 "^2.0.3"
 
@@ -3705,9 +3705,9 @@ multipipe@^0.1.2:
   dependencies:
     duplexer2 "0.0.2"
 
-mustache@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/mustache/-/mustache-2.3.0.tgz#4028f7778b17708a489930a6e52ac3bca0da41d0"
+mustache@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/mustache/-/mustache-3.0.0.tgz#3de22dd9ba38152f7355399a953dd4528c403338"
 
 mute-stdout@^1.0.0:
   version "1.0.0"
@@ -4265,7 +4265,7 @@ pkg-dir@^3.0.0:
   dependencies:
     find-up "^3.0.0"
 
-plugin-error@1.0.1:
+plugin-error@1.0.1, plugin-error@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/plugin-error/-/plugin-error-1.0.1.tgz#77016bd8919d0ac377fdcdd0322328953ca5781c"
   dependencies:
