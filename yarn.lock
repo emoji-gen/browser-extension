@@ -31,9 +31,9 @@
     "@types/events" "*"
     "@types/node" "*"
 
-"@types/chrome@^0.0.72":
-  version "0.0.72"
-  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.72.tgz#ab34692f69c806e6f02c0189e4cdb4d4722572c7"
+"@types/chrome@^0.0.75":
+  version "0.0.75"
+  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.75.tgz#11cb716cdaa13fc15c47bfcc11da325f375f23d1"
   dependencies:
     "@types/filesystem" "*"
 
