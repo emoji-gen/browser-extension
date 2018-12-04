@@ -25,7 +25,7 @@ interface PackageJSON {
 }
 
 const pkg: PackageJSON = JSON.parse(fs.readFileSync('./package.json').toString('utf-8'))
-const isDev = process.argv.indexOf('watch') > -1
+const isDev = process.argv.includes('watch')
 
 
 // ----- assets ---------------------------------------------------------------
