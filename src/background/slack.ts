@@ -16,7 +16,6 @@ export interface IResult {
 export async function searchJoinedTeams(): Promise<ITeam[]> {
   const res = await fetch('https://slack.com/customize/emoji', {
     credentials: 'include',
-    mode: 'cors',
   })
   const body = await res.text()
   if (_DEBUG) {
@@ -57,7 +56,6 @@ export async function registerEmoji(
   // fetch emoji image data
   const image = await fetch(url, {
     credentials: 'include',
-    mode: 'cors',
   })
   const imageData = await image.blob()
   if (_DEBUG) { console.log(image) }
@@ -66,7 +64,6 @@ export async function registerEmoji(
   const initialUrl = `https://${teamdomain}.slack.com/customize/emoji`
   const initialResponse = await fetch(initialUrl, {
     credentials: 'include',
-    mode: 'cors',
   })
   if (_DEBUG) { console.log(initialResponse) }
 
@@ -91,7 +88,6 @@ export async function registerEmoji(
     body: fd,
     credentials: 'include',
     method: 'POST',
-    mode: 'cors',
   })
   if (_DEBUG) { console.log(addResponse) }
 
