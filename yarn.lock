@@ -284,7 +284,8 @@
 
 "@types/webpack-notifier@^1.5.3":
   version "1.5.3"
-  resolved "http://registry.npmjs.org/@types/webpack-notifier/-/webpack-notifier-1.5.3.tgz#c443c81c6fb13b69833c4401671fae9ae71767c2"
+  resolved "https://registry.yarnpkg.com/@types/webpack-notifier/-/webpack-notifier-1.5.3.tgz#c443c81c6fb13b69833c4401671fae9ae71767c2"
+  integrity sha512-w9pOJgIanFGot0Z9dpUZ6YJtFyWJg8KWE84XxW1TZxWvEhKxgT7UjDjCxlmG8iXZa7yQkx4dIrqHpYwuUGZoYQ==
   dependencies:
     "@types/webpack" "*"
 
