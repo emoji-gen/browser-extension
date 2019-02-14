@@ -1,6 +1,6 @@
 {
   "name": "browser-extension",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Ultimate Browser Extension for Emoji Generator",
   "main": "index.js",
   "scripts": {
