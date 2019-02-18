@@ -67,7 +67,7 @@
     "karma-mocha": "^1.3.0",
     "karma-webpack": "4.0.0-rc.5",
     "lodash": "^4.17.10",
-    "mocha": "^5.0.0",
+    "mocha": "^6.0.0",
     "optimize-css-assets-webpack-plugin": "^5.0.0",
     "run-sequence": "^2.2.1",
     "sinon": "^7.1.1",
