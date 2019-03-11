@@ -13,7 +13,7 @@ import * as rename from 'gulp-rename'
 import tslint from 'gulp-tslint'
 import * as zip from 'gulp-zip'
 
-import * as del from 'del'
+import del from 'del'
 import { Server } from 'karma'
 import * as _ from 'lodash'
 
