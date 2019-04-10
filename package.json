@@ -27,7 +27,7 @@
   "devDependencies": {
     "@types/chai": "^4.1.2",
     "@types/cheerio": "^0.22.7",
-    "@types/chrome": "^0.0.81",
+    "@types/chrome": "^0.0.82",
     "@types/event-hooks-webpack-plugin": "^2.0.0",
     "@types/gulp": "^4.0.5",
     "@types/gulp-if": "^0.0.33",
