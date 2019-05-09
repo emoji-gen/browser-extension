@@ -53,10 +53,10 @@
   dependencies:
     "@types/node" "*"
 
-"@types/chrome@^0.0.81":
-  version "0.0.81"
-  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.81.tgz#4fbf34c370a60235be4f97f32429e701fb644d10"
-  integrity sha512-NKkQGMJSppFwUwMbEbYcq8/p/ACVHmQCUpWaqJVdHn81tU3by+YXnxw86KFa0tUSLamu35wtzFaMyY4TFaMceQ==
+"@types/chrome@^0.0.82":
+  version "0.0.82"
+  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.82.tgz#baa7b8a162f715b83294375f745acb60af818e74"
+  integrity sha512-Gpbjs+bnOZ41p2ZV2l/x9XaJUGpwZJMwAv76QPb1kO7IbHuCuczyg/BdJQkkWEWLCR1T4SnA2K1yJ3vScZITiw==
   dependencies:
     "@types/filesystem" "*"
 
@@ -66,13 +66,6 @@
   integrity sha512-4r8qa0quOvh7lGD0pre62CAb1oni1OO6ecJLGCezTmhQ8Fz50Arx9RUszryR8KlgK6avuSXvviL6yWyViQABOg==
   dependencies:
     "@types/node" "*"
-
-"@types/del@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@types/del/-/del-4.0.0.tgz#0d0b5a02e66a96d410d19241557ab25cded9eb16"
-  integrity sha512-LDE5atstX5kKnTobWknpmGHC52DH/tp8pIVsD2SSxaOFqW3AQr0EpdzYIfkZ331xe7l9Vn9NlJsBG6viU3mjBA==
-  dependencies:
-    del "*"
 
 "@types/event-hooks-webpack-plugin@^2.0.0":
   version "2.0.0"
@@ -1909,7 +1902,7 @@ define-property@^2.0.2:
     is-descriptor "^1.0.2"
     isobject "^3.0.1"
 
-del@*, del@^4.0.0:
+del@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/del/-/del-4.0.0.tgz#4fa27e92c366cb45b9bdaa56a9b8703dced17437"
   integrity sha512-/BnSJ+SuZyLu7xMn48kZY0nMXDi+5KNmR4g8n21Wivsl8+B9njV6/5kcTNE9juSprp0zRWBU28JuHUq0FqK1Nw==
