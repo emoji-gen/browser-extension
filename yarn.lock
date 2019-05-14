@@ -53,10 +53,10 @@
   dependencies:
     "@types/node" "*"
 
-"@types/chrome@^0.0.82":
-  version "0.0.82"
-  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.82.tgz#baa7b8a162f715b83294375f745acb60af818e74"
-  integrity sha512-Gpbjs+bnOZ41p2ZV2l/x9XaJUGpwZJMwAv76QPb1kO7IbHuCuczyg/BdJQkkWEWLCR1T4SnA2K1yJ3vScZITiw==
+"@types/chrome@^0.0.84":
+  version "0.0.84"
+  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.84.tgz#ef27885d3df5e1939203c63b3ef247647621d084"
+  integrity sha512-GF3x2MAw6/Xm0ONbCGE49w5aNKcTWDPGJl+IxK5HHbTM4A6z6gYJyjjzrzXwdP9UZt7lpChCG8HKJLp7nGFe/A==
   dependencies:
     "@types/filesystem" "*"
 
