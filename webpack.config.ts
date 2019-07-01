@@ -8,7 +8,7 @@ import * as UglifyJsPlugin from 'uglifyjs-webpack-plugin'
 import * as WebpackNotifierPlugin from 'webpack-notifier'
 import * as EventHooksPlugin from 'event-hooks-webpack-plugin'
 
-const isDev = process.argv.indexOf('--watch') > -1
+const isDev = process.argv.includes('--watch')
 const mode = isDev ? 'development' : 'production'
 
 const configuration: webpack.Configuration = {
