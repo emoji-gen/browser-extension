@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/workspace
     docker:
-      - image: node:10.15.1-stretch
+      - image: node:12.4.0-stretch
 
     steps:
       - checkout
