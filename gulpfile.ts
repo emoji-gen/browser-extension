@@ -4,7 +4,7 @@ import * as fs from 'fs'
 import { spawn } from 'child_process'
 
 import * as gulp from 'gulp'
-import * as gutil from 'gulp-util'
+import * as log from 'fancy-log'
 import * as _if from 'gulp-if'
 import * as jsonminify from 'gulp-jsonminify'
 import * as mustache from 'gulp-mustache'
@@ -80,7 +80,7 @@ gulp.task('tslint', () =>
 
 function runWebpack(opts: string[], cb: (err: any) => void) {
   const message = 'Run webpack with options `' + opts.join(' ') + '`'
-  gutil.log(message)
+  log(message)
 
   const child = spawn('webpack', opts)
   if (child.stdout != null) {
