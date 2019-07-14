@@ -28,7 +28,7 @@ Next, please load `dist/extension` directory as browser extension on Chrome or F
 Microsoft Edge is not supported, because Edge's WebExtensions support is incomplete.
 
 - Google Chrome
-  - https://chrome.google.com/webstore/detail/ghbhakkknnmocmiilhneahbkiaegdnmf?hl=ja&gl=JP
+  - https://chrome.google.com/webstore/detail/emoji-generator/ghbhakkknnmocmiilhneahbkiaegdnmf
 - Firefox
   - https://addons.mozilla.org/ja/firefox/addon/emoji-generator/
 
