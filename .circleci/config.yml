@@ -8,7 +8,9 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: emoji-gen/browser-extension/{{ arch }}/{{ checksum "yarn.lock" }}
+          key:
+            - emoji-gen/browser-extension/{{ arch }}/{{ checksum "yarn.lock" }}
+            - emoji-gen/browser-extension/{{ arch }}
       - run:
           name: System information
           command: |
