@@ -8,10 +8,12 @@ import * as browserAction from '../../src/background/browser_action'
 describe('addListener', () => {
   let addListener: sinon.SinonSpy
   let create: sinon.SinonSpy
+  let getUILanguage: sinon.SinonSpy
 
   beforeEach(() => {
     addListener = sinon.spy()
     create = sinon.spy()
+    getUILanguage = sinon.stub().returns('ja')
 
     const wind = window as any
     wind.chrome = {
@@ -19,12 +21,14 @@ describe('addListener', () => {
         onClicked: { addListener },
       },
       tabs: { create },
+      i18n: { getUILanguage },
     }
   })
 
   afterEach(() => {
     addListener.resetHistory()
     create.resetHistory()
+    getUILanguage.resetHistory()
 
     const wind = window as any
     wind.chrome = undefined
