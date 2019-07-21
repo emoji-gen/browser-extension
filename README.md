@@ -16,7 +16,7 @@
 
 ## Getting Started
 
-```
+```bash
 $ yarn
 $ yarn start     # for development
 $ yarn run build # for production
