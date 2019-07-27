@@ -3,7 +3,7 @@
 [![dependencies Status](https://david-dm.org/emoji-gen/browser-extension/status.svg)](https://david-dm.org/emoji-gen/browser-extension)
 [![devDependencies Status](https://david-dm.org/emoji-gen/browser-extension/dev-status.svg)](https://david-dm.org/emoji-gen/browser-extension?type=dev)
 [![Greenkeeper badge](https://badges.greenkeeper.io/emoji-gen/browser-extension.svg)](https://greenkeeper.io/)
-![License](https://img.shields.io/github/license/emoji-gen/browser-extension.svg)
+[![License](https://img.shields.io/static/v1?label=License&message=MIT&color=green)](https://opensource.org/licenses/MIT)
 
 :tada: Ultimate Browser Extension
 
