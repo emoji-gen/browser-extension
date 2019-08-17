@@ -27,13 +27,13 @@ jobs:
             apt install -q -y chromium
       - run:
           name: Install dependencies
-          command: yarn
+          command: retry -- yarn
       - run:
           name: Build
-          command: yarn run build
+          command: retry -- yarn run build
       - run:
           name: Test
-          command: yarn test
+          command: retry -- yarn test
       - save_cache:
           key: v1-{{ arch }}-{{ checksum "yarn.lock" }}
           paths:
