@@ -17,6 +17,10 @@ jobs:
             echo "Node $(node -v)"
             echo "Yarn v$(yarn --version)"
       - run:
+          name: Install retry command
+          command: |
+            ./.circleci/setup-retry.sh
+      - run:
           name: Install Chromium
           command: |
             apt update -q -y
