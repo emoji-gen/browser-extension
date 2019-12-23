@@ -9,8 +9,8 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v1-{{ arch }}-{{ checksum "yarn.lock" }}
-            - v1-{{ arch }}
+            - v2-{{ arch }}-{{ checksum "yarn.lock" }}
+            - v2-{{ arch }}
       - run:
           name: System information
           command: |
@@ -30,7 +30,7 @@ jobs:
           name: Test
           command: retry -- yarn test
       - save_cache:
-          key: v1-{{ arch }}-{{ checksum "yarn.lock" }}
+          key: v2-{{ arch }}-{{ checksum "yarn.lock" }}
           paths:
             - ~/workspace/node_modules
             - ~/.cache/yarn/
