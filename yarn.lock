@@ -90,10 +90,10 @@
   resolved "https://registry.yarnpkg.com/@types/chai/-/chai-4.1.7.tgz#1b8e33b61a8c09cbe1f85133071baa0dbf9fa71a"
   integrity sha512-2Y8uPt0/jwjhQ6EiluT0XCri1Dbplr0ZxfFXUz+ye13gaqE8u5gL5ppao1JrUYr9cIip5S6MvQzBS7Kke7U9VA==
 
-"@types/cheerio@^0.22.7":
-  version "0.22.12"
-  resolved "https://registry.yarnpkg.com/@types/cheerio/-/cheerio-0.22.12.tgz#93c050401d4935a5376e8b352965f7458bed5340"
-  integrity sha512-aczowyAJNfrkBV+HS8DyAA87OnvkqGrrOmm5s7V6Jbgimzv/1ZoAy91cLJX8GQrUS60KufD7EIzA2LbK8HV4hg==
+"@types/cheerio@^0.22.15":
+  version "0.22.15"
+  resolved "https://registry.yarnpkg.com/@types/cheerio/-/cheerio-0.22.15.tgz#69040ffa92c309beeeeb7e92db66ac3f80700c0b"
+  integrity sha512-UGiiVtJK5niCqMKYmLEFz1Wl/3L5zF/u78lu8CwoUywWXRr9LDimeYuOzXVLXBMO758fcTdFtgjvqlztMH90MA==
   dependencies:
     "@types/node" "*"
 

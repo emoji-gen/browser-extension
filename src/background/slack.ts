@@ -28,6 +28,10 @@ export async function searchJoinedTeams(): Promise<ITeam[]> {
     .map(_anchor => {
       const anchor  = $(_anchor)
       const href    = anchor.attr('href')
+      if (!href) {
+        return
+      }
+
       const matches = href.match(/\/\/([^\.]+)\.slack\.com/)
 
       if (matches) {
