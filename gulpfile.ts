@@ -119,6 +119,7 @@ gulp.task('zip-archive', () =>
      '.gitignore',
      '*.js',
      '*.json',
+     '*.ts',
      '*.yml',
      '*.md',
      'yarn.lock',
