@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/workspace
     docker:
-      - image: node:12.9.0-buster
+      - image: circleci/node:12.14.0-buster-browsers
 
     steps:
       - checkout
@@ -20,11 +20,6 @@ jobs:
           name: Install retry command
           command: |
             ./.circleci/setup-retry.sh
-      - run:
-          name: Install Chromium
-          command: |
-            apt update -q -y
-            apt install -q -y chromium
       - run:
           name: Install dependencies
           command: retry -- yarn
