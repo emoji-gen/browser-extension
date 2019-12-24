@@ -97,7 +97,7 @@ gulp.task('webpack-prod', cb => {
 })
 
 gulp.task('webpack-watch', cb => {
-  runWebpack(['--watch', '--progress'], cb)
+  runWebpack(['--watch'], cb)
 })
 
 
