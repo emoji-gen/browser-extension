@@ -40,7 +40,7 @@
     "@types/karma": "^3.0.3",
     "@types/karma-webpack": "^2.0.4",
     "@types/lodash": "^4.14.106",
-    "@types/mocha": "^5.0.0",
+    "@types/mocha": "^7.0.0",
     "@types/optimize-css-assets-webpack-plugin": "^5.0.0",
     "@types/sinon": "^7.0.0",
     "@types/uglifyjs-webpack-plugin": "^1.1.0",
