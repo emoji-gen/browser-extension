@@ -39,12 +39,14 @@
       "32": "icon32.png"
     }
   },
-  "permissions": [
+  "host_permissions": [
     {{#isDev}}
     "*://localhost/*",
     {{/isDev}}
     "https://emoji-gen.ninja/*",
     "https://*.slack.com/*"
+  ],
+  "permissions": [
   ],
   "web_accessible_resources": [
   ]
