@@ -3,7 +3,7 @@
 const WEB_URL = 'https://emoji-gen.ninja'
 
 export function addListener() {
-  chrome.browserAction.onClicked.addListener(
+  chrome.action.onClicked.addListener(
     (tab: chrome.tabs.Tab) => {
       const locale = getLocale()
       const url = locale === 'ja' ? WEB_URL : WEB_URL + '/' + locale + '/'
