@@ -1,6 +1,6 @@
 'use strict'
 
-import * as cloneInto from 'clone-into'
+import * as cloneInto from '@emoji-gen/clone-into'
 import {Ptero} from 'ptero'
 import * as ev from '../event'
 
