@@ -37,7 +37,7 @@ export async function searchJoinedTeams(): Promise<ITeam[]> {
     }
   } catch (e) {
     if (_DEBUG) {
-      console.error("Unable to parse JSON", propsText)
+      console.error('Unable to parse JSON', propsText)
     }
     return []
   }
