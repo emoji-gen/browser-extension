@@ -11,12 +11,9 @@
     "128": "icon128.png"
   },
   "version": "{{version}}",
-  "manifest_version": 2,
+  "manifest_version": 3,
   "background": {
-    "scripts": [
-      "background.bundle.js"
-    ],
-    "persistent": false
+    "service_worker": "background.bundle.js"
   },
   "content_scripts": [
     {
@@ -50,6 +47,5 @@
     "https://*.slack.com/*"
   ],
   "web_accessible_resources": [
-  ],
-  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+  ]
 }
