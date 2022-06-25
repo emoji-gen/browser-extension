@@ -14,39 +14,50 @@ export interface IResult {
 }
 
 export async function searchJoinedTeams(): Promise<ITeam[]> {
-  const res = await fetch('https://slack.com/customize/emoji', {
+  const res = await fetch('https://slack.com/signin', {
     credentials: 'include',
   })
-  const body = await res.text()
   if (_DEBUG) {
     console.log(res)
   }
 
+  const body = await res.text()
   const $ = cheerio.load(body)
-  const teamAnchors = $('#header_team_nav li:not(#add_team_option) a').toArray()
-  const teams: ITeam[] = teamAnchors
-    .map(_anchor => {
-      const anchor  = $(_anchor)
-      const href    = anchor.attr('href')
-      if (!href) {
-        return
-      }
+  const propsNode = $('#props_node')
+  const propsText = propsNode.attr('data-props')
+  if (!propsText) {
+    return []
+  }
 
-      const matches = href.match(/\/\/([^\.]+)\.slack\.com/)
+  let props
+  try {
+    props = JSON.parse(propsText)
+    if (_DEBUG) {
+      console.log('props', props)
+    }
+  } catch (e) {
+    if (_DEBUG) {
+      console.error("Unable to parse JSON", propsText)
+    }
+    return []
+  }
 
-      if (matches) {
-        return {
-          name: v.trim(anchor.text()),
-          teamdomain: matches[1],
-        }
+  if (!props) { return [] }
+  if (!props.loggedInTeams) { return [] }
+
+  const loggedInTeams: [{ [key: string]: string }] = props.loggedInTeams
+  return loggedInTeams
+    .map(team => {
+      if (team.is_enterprise) { return }
+      if (!team.team_name) { return }
+      if (!team.team_domain) { return }
+
+      return {
+        name: team.team_name,
+        teamdomain: team.team_domain,
       }
     })
     .filter(team => !!team) as ITeam[]
-
-  if (_DEBUG) {
-    console.log('teams', teams)
-  }
-  return teams
 }
 
 export async function registerEmoji(
