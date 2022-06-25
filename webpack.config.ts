@@ -104,6 +104,7 @@ const configuration: webpack.Configuration = {
     colors: true,
     modules: false,
   },
+  devtool: 'cheap-module-source-map'
 }
 
 module.exports = configuration
