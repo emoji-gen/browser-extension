@@ -1,7 +1,7 @@
 'use strict'
 
-import * as ev from '../event'
-import * as util from './util'
+import ev = require('../event')
+import util = require('./util')
 
 const APP_ID = 'j1g3xUDxVmwWCCKqibVQCZOHNpvnSMBY'
 

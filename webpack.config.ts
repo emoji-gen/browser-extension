@@ -2,11 +2,12 @@
 
 import { join } from 'path'
 
-import * as webpack from 'webpack'
-import * as OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin'
-import * as UglifyJsPlugin from 'uglifyjs-webpack-plugin'
-import * as WebpackNotifierPlugin from 'webpack-notifier'
-import * as EventHooksPlugin from 'event-hooks-webpack-plugin'
+import webpack = require('webpack')
+import OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+import UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+import WebpackNotifierPlugin = require('webpack-notifier')
+import EventHooksPlugin = require('event-hooks-webpack-plugin')
+const FileManagerPlugin = require('filemanager-webpack-plugin')
 
 const isDev = process.argv.includes('--watch')
 const mode = isDev ? 'development' : 'production'
@@ -25,8 +26,8 @@ const configuration: webpack.Configuration = {
   // Output
   //~~~~~~~~~~
   output: {
-    filename: '[name].bundle.js',
-    path: join(__dirname, 'dist/extension'),
+    filename: '[name].js',
+    path: join(__dirname, 'dist/manifest-v2'),
   },
 
   // Module
@@ -78,6 +79,18 @@ const configuration: webpack.Configuration = {
     new EventHooksPlugin({
       run: () => console.log('Mode:', mode),
       watchRun: () => console.log('Mode:', mode),
+    }),
+    new FileManagerPlugin({
+      events: {
+        onEnd: {
+          copy: [
+            {
+              source: 'dist/manifest-v2/*.js',
+              destination: 'dist/manifest-v3/',
+            },
+          ],
+        },
+      },
     }),
   ],
 

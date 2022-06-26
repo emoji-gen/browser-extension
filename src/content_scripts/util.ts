@@ -1,8 +1,8 @@
 'use strict'
 
-import * as cloneInto from '@emoji-gen/clone-into'
+import cloneInto = require('@emoji-gen/clone-into')
 import {Ptero} from 'ptero'
-import * as ev from '../event'
+import ev = require('../event')
 
 const ptero = new Ptero(document.body)
 

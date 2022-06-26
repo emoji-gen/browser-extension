@@ -29,7 +29,8 @@ const isDev = process.argv.includes('watch')
 
 gulp.task('assets', () =>
   gulp.src('./assets/**/*')
-    .pipe(gulp.dest('./dist/extension'))
+    .pipe(gulp.dest('./dist/manifest-v2'))
+    .pipe(gulp.dest('./dist/manifest-v3'))
 )
 
 gulp.task('assets-watch', () =>
@@ -47,19 +48,25 @@ gulp.task('clean', async () =>
 // ----- manifest -------------------------------------------------------------
 
 gulp.task('manifest', () =>
-  gulp.src('./src/manifest.json.mustache')
+  gulp.src('./src/manifest-*.json')
     .pipe(plumber())
     .pipe(mustache({
       isDev,
       version: pkg.version,
     }))
-    .pipe(rename({ extname: '' }))
+    .pipe(rename(path => {
+      return {
+        dirname: path.basename,
+        basename: 'manifest',
+        extname: '.json'
+      }
+    }))
     .pipe(_if(!isDev, jsonminify()))
-    .pipe(gulp.dest('./dist/extension'))
+    .pipe(gulp.dest('./dist'))
 )
 
 gulp.task('manifest-watch', () => {
-  gulp.watch('./src/manifest.json.mustache', gulp.task('manifest'))
+  gulp.watch('./src/manifest-*.json', gulp.task('manifest'))
 })
 
 

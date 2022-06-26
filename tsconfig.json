@@ -10,8 +10,10 @@
     "lib": ["dom", "es2016"],
     "baseUrl": "",
     "paths": {
-      "webpack": ["node_modules/@types/webpack/index.d.ts"]
-    }
+      "webpack": ["node_modules/@types/webpack/index.d.ts"],
+      "filemanager-webpack-plugin": ["node_modules/filemanager-webpack-plugin/types.d.ts"]
+    },
+    "esModuleInterop": true
   },
   "include": [
     "./src/**/*.ts"
