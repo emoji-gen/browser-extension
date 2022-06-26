@@ -12,7 +12,7 @@
   "version": "{{version}}",
   "manifest_version": 3,
   "background": {
-    "service_worker": "background.bundle.js"
+    "service_worker": "background.js"
   },
   "content_scripts": [
     {
@@ -25,7 +25,7 @@
       "css": [
       ],
       "js": [
-        "content_scripts.bundle.js"
+        "content_scripts.js"
       ],
       "run_at": "document_end",
       "all_frames": false

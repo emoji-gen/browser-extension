@@ -1,21 +1,21 @@
 'use strict'
 
-import * as fs from 'fs'
+import fs = require('fs')
 import { spawn } from 'child_process'
 
-import * as gulp from 'gulp'
-import * as log from 'fancy-log'
-import * as _if from 'gulp-if'
-import * as jsonminify from 'gulp-jsonminify'
-import * as mustache from 'gulp-mustache'
-import * as plumber from 'gulp-plumber'
-import * as rename from 'gulp-rename'
+import gulp = require('gulp')
+import log = require('fancy-log')
+import _if = require('gulp-if')
+import jsonminify = require('gulp-jsonminify')
+import mustache = require('gulp-mustache')
+import plumber = require('gulp-plumber')
+import rename = require('gulp-rename')
 import tslint from 'gulp-tslint'
-import * as zip from 'gulp-zip'
+import zip = require('gulp-zip')
 
-import * as del from 'del'
+import del = require('del')
 import { Server } from 'karma'
-import * as _ from 'lodash'
+import _ = require('lodash')
 
 
 // ----------------------------------------------------------------------------
