@@ -20,11 +20,8 @@ import * as _ from 'lodash'
 
 // ----------------------------------------------------------------------------
 
-interface PackageJSON {
-  version: string
-}
-
-const pkg: PackageJSON = JSON.parse(fs.readFileSync('./package.json').toString('utf-8'))
+const pkg: { [key: string]: string } =
+  JSON.parse(fs.readFileSync('./package.json').toString('utf-8'))
 const isDev = process.argv.includes('watch')
 
 
