@@ -1,5 +1,5 @@
 ## Browser Extension for Emoji Generator
-[![CircleCI](https://circleci.com/gh/emoji-gen/browser-extension/tree/master.svg?style=shield)](https://circleci.com/gh/emoji-gen/browser-extension/tree/master)
+[![build](https://github.com/emoji-gen/browser-extension/actions/workflows/build.yml/badge.svg)](https://github.com/emoji-gen/browser-extension/actions/workflows/build.yml)
 [![License](https://img.shields.io/static/v1?label=License&message=MIT&color=green)](https://opensource.org/licenses/MIT)
 
 :tada: Ultimate Browser Extension
