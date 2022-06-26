@@ -1,6 +1,7 @@
 'use strict'
 
 import * as karma from 'karma'
+import { omit } from 'lodash'
 
 module.exports = (config: karma.Config) => {
   config.set({
@@ -25,7 +26,7 @@ module.exports = (config: karma.Config) => {
     },
     reporters: ['progress'],
     singleRun: false,
-    webpack: require('./webpack.config'),
+    webpack: omit(require('./webpack.config'), ['entry']),
     webpackMiddleware: {
       noInfo: true,
     },
