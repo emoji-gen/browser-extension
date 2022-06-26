@@ -12,9 +12,7 @@
   },
   "version": "{{version}}",
   "background": {
-    "scripts": [
-      "background.js"
-    ],
+    "scripts": ["background.js"],
     "persistent": false
   },
   "content_scripts": [
@@ -25,11 +23,7 @@
         {{/isDev}}
         "*://emoji-gen.ninja/*"
       ],
-      "css": [
-      ],
-      "js": [
-        "content_scripts.js"
-      ],
+      "js": ["content_scripts.js"],
       "run_at": "document_end",
       "all_frames": false
     }

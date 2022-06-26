@@ -88,6 +88,10 @@ const configuration: webpack.Configuration = {
               source: 'dist/manifest-v2/*.js',
               destination: 'dist/manifest-v3/',
             },
+            {
+              source: 'dist/manifest-v2/*.js.map',
+              destination: 'dist/manifest-v3/',
+            },
           ],
         },
       },

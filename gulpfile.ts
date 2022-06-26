@@ -107,33 +107,39 @@ gulp.task('webpack-watch', cb => {
 
 // ----- zip ------------------------------------------------------------------
 
-gulp.task('zip-archive', () =>
-  gulp.src('dist/extension/**/*')
-    .pipe(zip('archive.zip'))
+gulp.task('zip-product-v2', () =>
+  gulp.src('dist/manifest-v2/**/*')
+    .pipe(zip('manifest-v2.zip'))
     .pipe(gulp.dest('dist'))
 )
 
- gulp.task('zip-source', () =>
-   gulp.src([
-     'assets/**/*',
-     'src/**/*',
-     'test/**/*',
-     '.node-version',
-     '.editorconfig',
-     '.gitignore',
-     '*.js',
-     '*.json',
-     '*.ts',
-     '*.yml',
-     '*.md',
-     'yarn.lock',
-     'LICENSE',
-   ], { base: '.' })
-     .pipe(zip('source.zip'))
-     .pipe(gulp.dest('dist'))
+gulp.task('zip-product-v3', () =>
+  gulp.src('dist/manifest-v3/**/*')
+    .pipe(zip('manifest-v3.zip'))
+    .pipe(gulp.dest('dist'))
 )
 
-gulp.task('zip', gulp.parallel('zip-archive', 'zip-source'))
+gulp.task('zip-source', () =>
+  gulp.src([
+    'assets/**/*',
+    'src/**/*',
+    'test/**/*',
+    '.editorconfig',
+    '.gitignore',
+    '.node-version',
+    'LICENSE',
+    'yarn.lock',
+    '*.js',
+    '*.json',
+    '*.ts',
+    '*.yml',
+    '*.md',
+  ], { base: '.' })
+    .pipe(zip('source.zip'))
+    .pipe(gulp.dest('dist'))
+)
+
+gulp.task('zip', gulp.parallel('zip-product-v2', 'zip-product-v3', 'zip-source'))
 
 
 // ----- for production -------------------------------------------------------
