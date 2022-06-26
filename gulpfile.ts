@@ -43,7 +43,7 @@ gulp.task('assets-watch', () =>
 // ----- clean ----------------------------------------------------------------
 
 gulp.task('clean', async () =>
-  await del(['dist', '*.zip'])
+  await del(['dist'])
 )
 
 
