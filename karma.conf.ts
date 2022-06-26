@@ -23,7 +23,7 @@ module.exports = (config: karma.Config) => {
     preprocessors: {
       'test/**/*.ts': ['webpack']
     },
-    reporters: ['progress', 'growl'],
+    reporters: ['progress'],
     singleRun: false,
     webpack: require('./webpack.config'),
     webpackMiddleware: {

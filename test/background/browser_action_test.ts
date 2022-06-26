@@ -17,7 +17,7 @@ describe('addListener', () => {
 
     const wind = window as any
     wind.chrome = {
-      browserAction: {
+      action: {
         onClicked: { addListener },
       },
       tabs: { create },

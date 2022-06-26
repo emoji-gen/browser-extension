@@ -2960,11 +2960,6 @@ growly@^1.3.0:
   resolved "https://registry.yarnpkg.com/growly/-/growly-1.3.0.tgz#f10748cbe76af964b7c96c93c6bcc28af120c081"
   integrity sha1-8QdIy+dq+WS3yWyTxrzCivEgwIE=
 
-growly@~1.1.0:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/growly/-/growly-1.1.1.tgz#eb434a0e56f0241d82864cbfd4112c70911242fa"
-  integrity sha1-60NKDlbwJB2Chky/1BEscJESQvo=
-
 gulp-cli@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/gulp-cli/-/gulp-cli-2.2.0.tgz#5533126eeb7fe415a7e3e84a297d334d5cf70ebc"
@@ -3739,13 +3734,6 @@ karma-chrome-launcher@^3.1.0:
   integrity sha512-3dPs/n7vgz1rxxtynpzZTvb9y/GIaW8xjAwcIGttLbycqoFtI7yo1NGnQi6oFTherRE+GIhCAHZC4vEqWGhNvg==
   dependencies:
     which "^1.2.1"
-
-karma-growl-reporter@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/karma-growl-reporter/-/karma-growl-reporter-1.0.0.tgz#c387de9767a91bc49c4a96309a0e1d5d73b4dff2"
-  integrity sha1-w4fel2epG8ScSpYwmg4dXXO03/I=
-  dependencies:
-    growly "~1.1.0"
 
 karma-mocha@^1.3.0:
   version "1.3.0"
