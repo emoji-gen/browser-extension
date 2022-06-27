@@ -170,13 +170,16 @@ gulp.task('watch', gulp.series(
 
 // ----- for test -------------------------------------------------------------
 
-gulp.task('karma', cb => {
+gulp.task('karma', done => {
   const server = new Server({
     configFile: `${__dirname}/karma.conf.ts`,
     singleRun: true
   })
   server.on('run_complete', (browsers, results) => {
-    cb(results.error ? 'There are test failures' : null)
+    if (results.failed) {
+      return done(new Error('There are test failures'))
+    }
+    done()
   })
   server.start()
 })
