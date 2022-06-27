@@ -1,26 +1,22 @@
 name: build
-
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-
+- push
+- pull_request
 jobs:
   build:
+    name: node v${{ matrix.node-version }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     strategy:
+      fail-fast: false
       matrix:
-        node:
+        node-version:
           - 14
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node }}
+          node-version: ${{ matrix.node-version }}
       - run: yarn
       - run: yarn test
       - run: yarn run build
