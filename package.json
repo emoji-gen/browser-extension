@@ -43,7 +43,7 @@
     "@types/mocha": "^9.1.1",
     "@types/optimize-css-assets-webpack-plugin": "^5.0.0",
     "@types/sinon": "^7.0.0",
-    "@types/uglifyjs-webpack-plugin": "^1.1.0",
+    "@types/uglifyjs-webpack-plugin": "^1.1.2",
     "@types/voca": "^1.4.2",
     "@types/webpack": "^4.39.1",
     "@types/webpack-notifier": "^1.5.3",
@@ -74,7 +74,7 @@
     "ts-node": "^8.0.2",
     "tslint": "^5.10.0",
     "typescript": "^3.0.3",
-    "uglifyjs-webpack-plugin": "^2.0.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.5.0",
     "webpack-cli": "^3.0.0",
     "webpack-notifier": "^1.5.0"

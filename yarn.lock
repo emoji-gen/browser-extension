@@ -315,7 +315,7 @@
   dependencies:
     source-map "^0.6.1"
 
-"@types/uglifyjs-webpack-plugin@^1.1.0":
+"@types/uglifyjs-webpack-plugin@^1.1.2":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@types/uglifyjs-webpack-plugin/-/uglifyjs-webpack-plugin-1.1.2.tgz#f35507a151a52b85da073ae77cbc207d8ed8404a"
   integrity sha512-RwK/ySrer/3gcCQNI++ZdbwDIU+ZpJs7UHucEUAC6gPfDwmasNz19oabA+S/iQHMKboIvtU1MhvTpqK6BLS6kg==
@@ -6823,7 +6823,7 @@ uglify-js@^3.6.0:
   resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.16.1.tgz#0e7ec928b3d0b1e1d952bce634c384fd56377317"
   integrity sha512-X5BGTIDH8U6IQ1TIRP62YC36k+ULAa1d59BxlWvPUJ1NkW5L3FwcGfEzuVvGmhJFBu0YJ5Ge25tmRISqCmLiRQ==
 
-uglifyjs-webpack-plugin@^2.0.0:
+uglifyjs-webpack-plugin@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/uglifyjs-webpack-plugin/-/uglifyjs-webpack-plugin-2.2.0.tgz#e75bc80e7f1937f725954c9b4c5a1e967ea9d0d7"
   integrity sha512-mHSkufBmBuJ+KHQhv5H0MXijtsoA1lynJt1lXOaotja8/I0pR4L9oGaPIZw+bQBOFittXZg9OC1sXSGO9D9ZYg==
