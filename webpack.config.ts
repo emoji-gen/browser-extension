@@ -73,7 +73,7 @@ const configuration: webpack.Configuration = {
       /sinon/,
       `${__dirname}/node_modules/sinon/pkg/sinon.js`
     ),
-    new WebpackNotifierPlugin({ alwaysNotify: true }),
+    new WebpackNotifierPlugin(),
     new EventHooksPlugin({
       run: () => console.log('Mode:', mode),
       watchRun: () => console.log('Mode:', mode),

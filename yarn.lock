@@ -364,13 +364,6 @@
     "@types/webpack" "^4"
     loglevel "^1.6.2"
 
-"@types/webpack-notifier@^1.5.3":
-  version "1.14.0"
-  resolved "https://registry.yarnpkg.com/@types/webpack-notifier/-/webpack-notifier-1.14.0.tgz#15e66cc764bcfc4718bb03fba89b00597b359eb3"
-  integrity sha512-yHj9RN8rEN9/1DTJ3sXzPout681F90NzOoxklfLFUowNxtBHxKOGkfej8dn5cY8Iq2y4yFPStXV+Z7eGIKs90Q==
-  dependencies:
-    webpack-notifier "*"
-
 "@types/webpack-sources@*":
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/@types/webpack-sources/-/webpack-sources-3.2.0.tgz#16d759ba096c289034b26553d2df1bf45248d38b"
@@ -6211,7 +6204,7 @@ webpack-log@^2.0.0:
     ansi-colors "^3.0.0"
     uuid "^3.3.2"
 
-webpack-notifier@*, webpack-notifier@^1.5.0:
+webpack-notifier@^1.15.0:
   version "1.15.0"
   resolved "https://registry.yarnpkg.com/webpack-notifier/-/webpack-notifier-1.15.0.tgz#72644a1a4ec96b3528704d28f79da5e70048e8ee"
   integrity sha512-N2V8UMgRB5komdXQRavBsRpw0hPhJq2/SWNOGuhrXpIgRhcMexzkGQysUyGStHLV5hkUlgpRiF7IUXoBqyMmzQ==
