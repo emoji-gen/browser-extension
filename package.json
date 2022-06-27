@@ -35,7 +35,7 @@
     "@types/gulp-jsonminify": "^1.0.0",
     "@types/gulp-mustache": "^3.0.3",
     "@types/gulp-plumber": "^0.0.33",
-    "@types/gulp-rename": "^0.0.33",
+    "@types/gulp-rename": "^2.0.1",
     "@types/gulp-zip": "^4.0.0",
     "@types/karma": "^3.0.3",
     "@types/karma-webpack": "^2.0.4",
