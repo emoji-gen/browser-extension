@@ -3,7 +3,6 @@
 import { join } from 'path'
 
 import webpack = require('webpack')
-import OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 import UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 import WebpackNotifierPlugin = require('webpack-notifier')
 import EventHooksPlugin = require('event-hooks-webpack-plugin')
@@ -64,7 +63,6 @@ const configuration: webpack.Configuration = {
         sourceMap: false,
       }),
       new webpack.optimize.AggressiveMergingPlugin(),
-      new OptimizeCSSAssetsPlugin({}),
     ]
   },
   plugins: [
