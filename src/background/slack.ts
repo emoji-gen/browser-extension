@@ -1,7 +1,7 @@
 'use strict'
 
-import * as cheerio from 'cheerio'
-import * as v from 'voca'
+import cheerio = require('cheerio')
+import v = require('voca')
 
 export interface ITeam {
   name: string;

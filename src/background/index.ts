@@ -1,8 +1,8 @@
 'use strict'
 
-import * as ev from '../event'
-import * as browserAction from './browser_action'
-import * as slack from './slack'
+import ev = require('../event')
+import browserAction = require('./browser_action')
+import slack = require('./slack')
 
 function attached(
   request: any,
