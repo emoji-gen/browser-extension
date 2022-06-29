@@ -12,7 +12,7 @@ module.exports = (config: karma.Config) => {
     concurrency: Infinity,
     exclude: [
     ],
-    frameworks: ['mocha'],
+    frameworks: ['mocha', 'webpack'],
     files: [
       'test/**/*.ts'
     ],
@@ -26,7 +26,7 @@ module.exports = (config: karma.Config) => {
     },
     reporters: ['progress'],
     singleRun: false,
-    webpack: omit(require('./webpack.config'), ['entry']),
+    webpack: omit(require('./webpack.config'), ['entry', 'output']),
     webpackMiddleware: {
       noInfo: true,
     },
