@@ -3,9 +3,10 @@
 import { join } from 'path'
 
 import webpack = require('webpack')
-import UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 import WebpackNotifierPlugin = require('webpack-notifier')
 import EventHooksPlugin = require('event-hooks-webpack-plugin')
+import TerserPlugin = require('terser-webpack-plugin')
+
 const FileManagerPlugin = require('filemanager-webpack-plugin')
 
 const isDev = process.argv.includes('--watch')
@@ -58,9 +59,8 @@ const configuration: webpack.Configuration = {
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   optimization: {
     minimizer: [
-      new UglifyJsPlugin({
-        parallel: true,
-        sourceMap: false,
+      new TerserPlugin({
+        extractComments: false,
       }),
       new webpack.optimize.AggressiveMergingPlugin(),
     ]
@@ -119,7 +119,7 @@ const configuration: webpack.Configuration = {
     colors: true,
     modules: false,
   },
-  devtool: 'cheap-module-source-map'
+  devtool: isDev ? 'cheap-module-source-map' : false,
 }
 
 module.exports = configuration
