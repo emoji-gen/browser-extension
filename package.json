@@ -6,7 +6,7 @@
   "scripts": {
     "start": "gulp watch",
     "build": "gulp",
-    "test": "karma start --single-run"
+    "test": "TS_NODE_TRANSPILE_ONLY=1 gulp test"
   },
   "repository": {
     "type": "git",
