@@ -13,6 +13,7 @@ import rename = require('gulp-rename')
 import tslint from 'gulp-tslint'
 import zip = require('gulp-zip')
 
+import chalk = require('chalk')
 import del = require('del')
 import { Server } from 'karma'
 import _ = require('lodash')
@@ -82,26 +83,16 @@ gulp.task('tslint', () =>
 
 // ----- webpack --------------------------------------------------------------
 
-function runWebpack(opts: string[], cb: (err: any) => void) {
-  const message = 'Run webpack with options `' + opts.join(' ') + '`'
-  log(message)
-
-  const child = spawn('webpack', opts)
-  if (child.stdout != null) {
-    child.stdout.on('data', data => process.stdout.write(data))
-  }
-  if (child.stderr != null) {
-    child.stderr.on('data', data => process.stderr.write(data))
-  }
-  child.on('close', cb)
-}
-
-gulp.task('webpack-prod', cb => {
-  runWebpack([], cb)
+gulp.task('webpack-prod', done => {
+  log('Executing command \'' + chalk.cyan('webpack') + '\'...')
+  const proc = spawn('webpack', [], { stdio: 'inherit' })
+  proc.on('close', done)
 })
 
-gulp.task('webpack-watch', cb => {
-  runWebpack(['--watch'], cb)
+gulp.task('webpack-watch', done => {
+  log('Executing command \'' + chalk.cyan('webpack --watch') + '\'...')
+  const proc = spawn('webpack', ['--watch'], { stdio: 'inherit' })
+  proc.on('close', done)
 })
 
 
@@ -171,17 +162,8 @@ gulp.task('watch', gulp.series(
 // ----- for test -------------------------------------------------------------
 
 gulp.task('karma', done => {
-  const server = new Server({
-    configFile: `${__dirname}/karma.conf.ts`,
-    singleRun: true
-  })
-  server.on('run_complete', (browsers, results) => {
-    if (results.failed) {
-      return done(new Error('There are test failures'))
-    }
-    done()
-  })
-  server.start()
+  const proc = spawn('karma', ['start', '--single-run'], { stdio: 'inherit' })
+  proc.on('close', done)
 })
 
 gulp.task('test', gulp.series('tslint', 'karma'))
