@@ -22,12 +22,9 @@ $ yarn run build # for production
 Next, please load `dist/extension` directory as browser extension on Chrome or Firefox.
 
 ## Supported Browsers
-Microsoft Edge is not supported, because Edge's WebExtensions support is incomplete.
 
-- Google Chrome
-  - https://chrome.google.com/webstore/detail/emoji-generator/ghbhakkknnmocmiilhneahbkiaegdnmf
-- Firefox
-  - https://addons.mozilla.org/ja/firefox/addon/emoji-generator/
+- [Google Chrome](https://chrome.google.com/webstore/detail/emoji-generator/ghbhakkknnmocmiilhneahbkiaegdnmf) (Manifest V3)
+- [Firefox](https://addons.mozilla.org/ja/firefox/addon/emoji-generator/) (Manifest V2)
 
 ## License
 
