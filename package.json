@@ -20,13 +20,12 @@
   "homepage": "https://github.com/emoji-gen/browser-extension",
   "dependencies": {
     "@emoji-gen/clone-into": "^0.2.0",
-    "cheerio": "^0.22.0",
+    "cheerio": "1.0.0-rc.12",
     "ptero": "^0.2.0",
     "voca": "^1.4.0"
   },
   "devDependencies": {
     "@types/chai": "^4.3.1",
-    "@types/cheerio": "^0.22.31",
     "@types/chrome": "0.0.190",
     "@types/event-hooks-webpack-plugin": "^2.2.2",
     "@types/fancy-log": "^2.0.0",
@@ -74,5 +73,8 @@
     "webpack": "^5.73.0",
     "webpack-cli": "^4.10.0",
     "webpack-notifier": "^1.15.0"
+  },
+  "resolutions": {
+    "glob-parent": "^6.0.2"
   }
 }
