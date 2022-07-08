@@ -40,10 +40,10 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
 
-"@emoji-gen/clone-into@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@emoji-gen/clone-into/-/clone-into-0.2.0.tgz#39276e77ac050bc7a543079bd20c4df2bcc911f4"
-  integrity sha512-+tmfw3sQrZUbXq/5+qj3svH+vB0bIKWJIIvo75AzodL16rgTT42i4KUvhzEGo75V5j5pqLCBIm13rrXLqLLwSQ==
+"@emoji-gen/clone-into@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@emoji-gen/clone-into/-/clone-into-0.3.0.tgz#68779da12c52eb8b92c2b6b70d5178e1b5196fad"
+  integrity sha512-OkDhCoAMuDdP319TaARvJydQDPjwCNGf20P1W2l2NaPQM8WXfMLgLtMhEabMPQK/b/8K+HUE7TzB3h0lDdT1Hg==
 
 "@jridgewell/gen-mapping@^0.3.0":
   version "0.3.2"

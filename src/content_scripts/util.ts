@@ -1,6 +1,6 @@
 'use strict'
 
-import cloneInto = require('@emoji-gen/clone-into')
+import {cloneInto} from '@emoji-gen/clone-into'
 import {Ptero} from 'ptero'
 import ev = require('../event')
 
