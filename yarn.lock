@@ -45,6 +45,11 @@
   resolved "https://registry.yarnpkg.com/@emoji-gen/clone-into/-/clone-into-0.3.0.tgz#68779da12c52eb8b92c2b6b70d5178e1b5196fad"
   integrity sha512-OkDhCoAMuDdP319TaARvJydQDPjwCNGf20P1W2l2NaPQM8WXfMLgLtMhEabMPQK/b/8K+HUE7TzB3h0lDdT1Hg==
 
+"@emoji-gen/ptero@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@emoji-gen/ptero/-/ptero-0.3.0.tgz#6e0d68333c385a058111f71aa1cb0f0bb0a72623"
+  integrity sha512-QZoN450PXGYmmMtEA+nQ5DG8hZiJh+dEE0j3B3Bqx2x0qduM8wqRTEjevBjzRMS5+eX4L8Qn7WPUwofxt98wrQ==
+
 "@jridgewell/gen-mapping@^0.3.0":
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/@jridgewell/gen-mapping/-/gen-mapping-0.3.2.tgz#c1aedc61e853f2bb9f5dfe6d4442d3b565b253b9"
@@ -3982,11 +3987,6 @@ process-nextick-args@^2.0.0, process-nextick-args@~2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
   integrity sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==
-
-ptero@^0.2.0:
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/ptero/-/ptero-0.2.4.tgz#7d78a7db91e3c26fd9d06afd9fbbd4c30fdc58e1"
-  integrity sha512-kQQBA94qWmCNH+sLJ9K2zH4Ogpu0QqDmuo2+9fbM9PO2MiJ626X0zP4/qf0SrEfr38YrqZLHKC8stzPLxHnrFg==
 
 pump@^2.0.0:
   version "2.0.1"

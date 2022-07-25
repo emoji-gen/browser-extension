@@ -1,7 +1,7 @@
 'use strict'
 
 import {cloneInto} from '@emoji-gen/clone-into'
-import {Ptero} from 'ptero'
+import {Ptero} from '@emoji-gen/ptero'
 import ev = require('../event')
 
 const ptero = new Ptero(document.body)
