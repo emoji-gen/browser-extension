@@ -8,16 +8,6 @@
     "build": "gulp",
     "test": "TS_NODE_TRANSPILE_ONLY=1 gulp test"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/emoji-gen/browser-extension.git"
-  },
-  "author": "Emoji Generator",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/emoji-gen/browser-extension/issues"
-  },
-  "homepage": "https://github.com/emoji-gen/browser-extension",
   "dependencies": {
     "@emoji-gen/clone-into": "^0.3.0",
     "@emoji-gen/ptero": "^0.3.0",
@@ -77,5 +67,20 @@
   },
   "resolutions": {
     "glob-parent": "^6.0.2"
-  }
+  },
+  "author": {
+    "name": "Pine Mizune",
+    "email": "pinemz@gmail.com",
+    "url": "https://github.com/pine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emoji-gen/browser-extension.git"
+  },
+  "bugs": {
+    "url": "https://github.com/emoji-gen/browser-extension/issues"
+  },
+  "homepage": "https://github.com/emoji-gen/browser-extension",
+  "license": "MIT",
+  "private": true
 }
