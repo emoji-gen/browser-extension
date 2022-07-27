@@ -10,12 +10,10 @@ import jsonminify = require('gulp-jsonminify')
 import mustache = require('gulp-mustache')
 import plumber = require('gulp-plumber')
 import rename = require('gulp-rename')
-import tslint from 'gulp-tslint'
 import zip = require('gulp-zip')
 
 import chalk = require('chalk')
 import del = require('del')
-import { Server } from 'karma'
 import _ = require('lodash')
 
 
@@ -69,16 +67,6 @@ gulp.task('manifest', () =>
 gulp.task('manifest-watch', () => {
   gulp.watch('./src/manifest-*.json', gulp.task('manifest'))
 })
-
-
-// ----- tslint ---------------------------------------------------------------
-
-gulp.task('tslint', () =>
-  gulp.src('src/**/*.ts')
-    .pipe(plumber())
-    .pipe(tslint({ formatter: 'prose' }))
-    .pipe(tslint.report({ summarizeFailureOutput: true }))
-)
 
 
 // ----- webpack --------------------------------------------------------------
@@ -157,13 +145,3 @@ gulp.task('watch', gulp.series(
     'webpack-watch',
   ),
 ))
-
-
-// ----- for test -------------------------------------------------------------
-
-gulp.task('karma', done => {
-  const proc = spawn('karma', ['start', '--single-run'], { stdio: 'inherit' })
-  proc.on('close', done)
-})
-
-gulp.task('test', gulp.series('tslint', 'karma'))
