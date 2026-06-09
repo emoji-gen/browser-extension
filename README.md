@@ -1,5 +1,5 @@
 ## Browser Extension for Emoji Generator
-[![build](https://github.com/emoji-gen/browser-extension/actions/workflows/build.yml/badge.svg)](https://github.com/emoji-gen/browser-extension/actions/workflows/build.yml)
+[![test](https://github.com/emoji-gen/browser-extension/actions/workflows/test.yml/badge.svg)](https://github.com/emoji-gen/browser-extension/actions/workflows/test.yml)
 [![License](https://img.shields.io/static/v1?label=License&message=MIT&color=green)](https://opensource.org/licenses/MIT)
 
 :tada: Ultimate Browser Extension
