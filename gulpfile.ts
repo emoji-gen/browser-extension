@@ -107,7 +107,6 @@ gulp.task('zip-source', () =>
     '.gitignore',
     '.node-version',
     'LICENSE',
-    'yarn.lock',
     '*.js',
     '*.json',
     '*.ts',

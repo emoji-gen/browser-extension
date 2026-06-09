@@ -9,14 +9,13 @@
 ## Requirements
 
 - Node `$(cat .node-version)`
-- [Yarn](https://yarnpkg.com/)
 
 ## Getting Started
 
 ```bash
-$ yarn
-$ yarn start     # for development
-$ yarn run build # for production
+$ npm install
+$ npm start     # for development
+$ npm run build # for production
 ```
 
 Next, please load `dist/extension` directory as browser extension on Chrome or Firefox.
