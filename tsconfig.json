@@ -4,7 +4,7 @@
     "sourceMap": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "module": "commonjs",
+    "module": "ESNext",
     "moduleResolution": "node",
     "target": "es5",
     "lib": ["dom", "es2016"],

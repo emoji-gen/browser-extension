@@ -1,5 +1,3 @@
-"use strict";
-
 const WEB_URL = "https://emoji-gen.ninja";
 
 export function addListener() {

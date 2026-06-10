@@ -1,13 +1,13 @@
 "use strict";
 
-import { join } from "path";
+import { join } from "node:path";
 
-import webpack = require("webpack");
-import WebpackNotifierPlugin = require("webpack-notifier");
-import EventHooksPlugin = require("event-hooks-webpack-plugin");
-import TerserPlugin = require("terser-webpack-plugin");
+import webpack from "webpack";
+import WebpackNotifierPlugin from "webpack-notifier";
+import EventHooksPlugin from "event-hooks-webpack-plugin";
+import TerserPlugin from "terser-webpack-plugin";
 
-const FileManagerPlugin = require("filemanager-webpack-plugin");
+import FileManagerPlugin from "filemanager-webpack-plugin";
 
 const isDev = process.argv.includes("--watch");
 const mode = isDev ? "development" : "production";
@@ -17,7 +17,7 @@ const configuration: webpack.Configuration = {
 
   // Entry and Context
   //~~~~~~~~~~~~~~~~~~~~~~~
-  context: __dirname,
+  context: import.meta.dirname,
   entry: {
     content_scripts: "./src/content_scripts",
     background: "./src/background",
@@ -27,7 +27,7 @@ const configuration: webpack.Configuration = {
   //~~~~~~~~~~
   output: {
     filename: "[name].js",
-    path: join(__dirname, "dist/manifest-v2"),
+    path: join(import.meta.dirname, "dist/manifest-v2"),
   },
 
   // Module
@@ -50,6 +50,10 @@ const configuration: webpack.Configuration = {
   //~~~~~~~~~~~
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx", ".json"],
+    extensionAlias: {
+      ".js": [".ts", ".js"],
+      ".mjs": [".mts", ".mjs"],
+    },
     alias: {
       sinon: "sinon/pkg/sinon",
     },
@@ -71,7 +75,7 @@ const configuration: webpack.Configuration = {
     }),
     new webpack.NormalModuleReplacementPlugin(
       /sinon/,
-      `${__dirname}/node_modules/sinon/pkg/sinon.js`,
+      `${import.meta.dirname}/node_modules/sinon/pkg/sinon.js`,
     ),
     new WebpackNotifierPlugin(),
     new EventHooksPlugin({
@@ -122,4 +126,4 @@ const configuration: webpack.Configuration = {
   devtool: isDev ? "cheap-module-source-map" : false,
 };
 
-module.exports = configuration;
+export default configuration;

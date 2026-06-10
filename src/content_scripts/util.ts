@@ -2,7 +2,7 @@
 
 import { cloneInto } from "@emoji-gen/clone-into";
 import { Ptero } from "@emoji-gen/ptero";
-import ev = require("../event");
+import { CE_ATTACH } from "../event.js";
 
 const ptero = new Ptero(document.body);
 
@@ -14,7 +14,7 @@ export function getAppId() {
 }
 
 export function attach() {
-  ptero.emit(ev.CE_ATTACH, { contents: null });
+  ptero.emit(CE_ATTACH, { contents: null });
 }
 
 export function listenCustomEvent(req: string, res: string) {
