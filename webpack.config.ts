@@ -1,16 +1,16 @@
-'use strict'
+"use strict";
 
-import { join } from 'path'
+import { join } from "path";
 
-import webpack = require('webpack')
-import WebpackNotifierPlugin = require('webpack-notifier')
-import EventHooksPlugin = require('event-hooks-webpack-plugin')
-import TerserPlugin = require('terser-webpack-plugin')
+import webpack = require("webpack");
+import WebpackNotifierPlugin = require("webpack-notifier");
+import EventHooksPlugin = require("event-hooks-webpack-plugin");
+import TerserPlugin = require("terser-webpack-plugin");
 
-const FileManagerPlugin = require('filemanager-webpack-plugin')
+const FileManagerPlugin = require("filemanager-webpack-plugin");
 
-const isDev = process.argv.includes('--watch')
-const mode = isDev ? 'development' : 'production'
+const isDev = process.argv.includes("--watch");
+const mode = isDev ? "development" : "production";
 
 const configuration: webpack.Configuration = {
   mode,
@@ -19,29 +19,29 @@ const configuration: webpack.Configuration = {
   //~~~~~~~~~~~~~~~~~~~~~~~
   context: __dirname,
   entry: {
-    'content_scripts': './src/content_scripts',
-    'background': './src/background',
+    content_scripts: "./src/content_scripts",
+    background: "./src/background",
   },
 
   // Output
   //~~~~~~~~~~
   output: {
-    filename: '[name].js',
-    path: join(__dirname, 'dist/manifest-v2'),
+    filename: "[name].js",
+    path: join(__dirname, "dist/manifest-v2"),
   },
 
   // Module
   //~~~~~~~~~~~
   module: {
-    noParse: [ /sinon/ ],
+    noParse: [/sinon/],
     rules: [
       {
         test: /sinon.*\.js$/,
-        use: 'imports-loader?define=>false,require=>false',
+        use: "imports-loader?define=>false,require=>false",
       },
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        use: "ts-loader",
       },
     ],
   },
@@ -49,9 +49,9 @@ const configuration: webpack.Configuration = {
   // Resolve
   //~~~~~~~~~~~
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
+    extensions: [".ts", ".tsx", ".js", ".jsx", ".json"],
     alias: {
-      'sinon': 'sinon/pkg/sinon',
+      sinon: "sinon/pkg/sinon",
     },
   },
 
@@ -63,7 +63,7 @@ const configuration: webpack.Configuration = {
         extractComments: false,
       }),
       new webpack.optimize.AggressiveMergingPlugin(),
-    ]
+    ],
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -71,24 +71,24 @@ const configuration: webpack.Configuration = {
     }),
     new webpack.NormalModuleReplacementPlugin(
       /sinon/,
-      `${__dirname}/node_modules/sinon/pkg/sinon.js`
+      `${__dirname}/node_modules/sinon/pkg/sinon.js`,
     ),
     new WebpackNotifierPlugin(),
     new EventHooksPlugin({
-      run: () => console.log('Mode:', mode),
-      watchRun: () => console.log('Mode:', mode),
+      run: () => console.log("Mode:", mode),
+      watchRun: () => console.log("Mode:", mode),
     }),
     new FileManagerPlugin({
       events: {
         onEnd: {
           copy: [
             {
-              source: 'dist/manifest-v2/*.js',
-              destination: 'dist/manifest-v3/',
+              source: "dist/manifest-v2/*.js",
+              destination: "dist/manifest-v3/",
             },
             {
-              source: 'dist/manifest-v2/*.js.map',
-              destination: 'dist/manifest-v3/',
+              source: "dist/manifest-v2/*.js.map",
+              destination: "dist/manifest-v3/",
             },
           ],
         },
@@ -119,7 +119,7 @@ const configuration: webpack.Configuration = {
     colors: true,
     modules: false,
   },
-  devtool: isDev ? 'cheap-module-source-map' : false,
-}
+  devtool: isDev ? "cheap-module-source-map" : false,
+};
 
-module.exports = configuration
+module.exports = configuration;

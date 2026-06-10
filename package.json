@@ -6,9 +6,10 @@
   "scripts": {
     "start": "gulp watch",
     "build": "gulp",
-    "test": "run-p test:tslint test:karma",
-    "test:tslint": "tslint src/**/*.ts",
-    "test:karma": "karma start --single-run"
+    "test": "run-p prettier:check test:karma",
+    "test:karma": "karma start --single-run",
+    "prettier:check": "prettier . --check",
+    "prettier:write": "prettier . --write"
   },
   "dependencies": {
     "@emoji-gen/clone-into": "^0.3.0",
@@ -57,11 +58,11 @@
     "lodash": "^4.17.21",
     "mocha": "^9.2.2",
     "npm-run-all": "^4.1.5",
+    "prettier": "^3.8.4",
     "sinon": "^14.0.0",
     "terser-webpack-plugin": "^5.3.3",
     "ts-loader": "^9.3.1",
     "ts-node": "^10.8.1",
-    "tslint": "^5.10.0",
     "typescript": "^4.7.4",
     "webpack": "^5.73.0",
     "webpack-cli": "^4.10.0",

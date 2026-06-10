@@ -1,16 +1,15 @@
-'use strict'
+"use strict";
 
-import ev = require('../event')
-import browserAction = require('./browser_action')
-import slack = require('./slack')
+import ev = require("../event");
+import browserAction = require("./browser_action");
+import slack = require("./slack");
 
 function attached(
   request: any,
   sender: chrome.runtime.MessageSender,
   sendResponse: (response: any) => void,
-  )
-{
-  sendResponse({ contents: null })
+) {
+  sendResponse({ contents: null });
 }
 
 function searchJoinedTeams(
@@ -18,12 +17,11 @@ function searchJoinedTeams(
   sender: chrome.runtime.MessageSender,
   sendResponse: (response: any) => void,
 ): boolean {
-  slack.searchJoinedTeams()
-    .then(
-      teams => sendResponse({ contents: teams }),
-      err   => sendResponse({ err }),
-    )
-  return true
+  slack.searchJoinedTeams().then(
+    (teams) => sendResponse({ contents: teams }),
+    (err) => sendResponse({ err }),
+  );
+  return true;
 }
 
 function registerEmoji(
@@ -31,41 +29,40 @@ function registerEmoji(
   sender: chrome.runtime.MessageSender,
   sendResponse: (response: any) => void,
 ): boolean {
-  slack.registerEmoji(
-    request.detail.url,
-    request.detail.text,
-    request.detail.teamdomain,
-  )
-    .then(
-      _ => sendResponse({ contents: 'ok' }),
-      err => sendResponse({ err }),
+  slack
+    .registerEmoji(
+      request.detail.url,
+      request.detail.text,
+      request.detail.teamdomain,
     )
-  return true
+    .then(
+      (_) => sendResponse({ contents: "ok" }),
+      (err) => sendResponse({ err }),
+    );
+  return true;
 }
 
 // --------------------------------------------------------------------------
 
 function main() {
   if (_DEBUG) {
-    console.log('Start background scripts')
+    console.log("Start background scripts");
   }
 
-  browserAction.addListener()
-  chrome.runtime.onMessage.addListener(
-    (request, sender, sendResponse) => {
-      if (_DEBUG) {
-        console.log(request)
-      }
-      switch (request.type) {
-        case ev.CE_ATTACH:
-          return attached(request, sender, sendResponse)
-        case ev.CE_SEARCH_JOINED_TEAMS:
-          return searchJoinedTeams(request, sender, sendResponse)
-        case ev.CE_REGISTER_EMOJI:
-          return registerEmoji(request, sender, sendResponse)
-      }
-    },
-  )
+  browserAction.addListener();
+  chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    if (_DEBUG) {
+      console.log(request);
+    }
+    switch (request.type) {
+      case ev.CE_ATTACH:
+        return attached(request, sender, sendResponse);
+      case ev.CE_SEARCH_JOINED_TEAMS:
+        return searchJoinedTeams(request, sender, sendResponse);
+      case ev.CE_REGISTER_EMOJI:
+        return registerEmoji(request, sender, sendResponse);
+    }
+  });
 }
 
-main()
+main();

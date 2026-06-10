@@ -11,12 +11,11 @@
     "baseUrl": "",
     "paths": {
       "webpack": ["node_modules/@types/webpack/index.d.ts"],
-      "filemanager-webpack-plugin": ["node_modules/filemanager-webpack-plugin/types.d.ts"]
+      "filemanager-webpack-plugin": [
+        "node_modules/filemanager-webpack-plugin/types.d.ts"
+      ]
     },
     "esModuleInterop": true
   },
-  "include": [
-    "./src/**/*.ts"
-  ]
+  "include": ["./src/**/*.ts"]
 }
-

@@ -1,11 +1,11 @@
 name: Test
 on:
-- push
-- pull_request
+  - push
+  - pull_request
 
 jobs:
   test:
-    name:  Test (Node v${{ matrix.node-version }})
+    name: Test (Node v${{ matrix.node-version }})
     runs-on: ubuntu-latest
     timeout-minutes: 10
     strategy:
