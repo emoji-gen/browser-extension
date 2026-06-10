@@ -1,25 +1,25 @@
 "use strict";
 
-import fs = require("fs");
+import { readFileSync } from "node:fs";
 import { spawn } from "child_process";
 
-import gulp = require("gulp");
-import log = require("fancy-log");
-import _if = require("gulp-if");
-import jsonminify = require("gulp-jsonminify");
-import mustache = require("gulp-mustache");
-import plumber = require("gulp-plumber");
-import rename = require("gulp-rename");
-import zip = require("gulp-zip");
+import gulp from "gulp";
+import log from "fancy-log";
+import _if from "gulp-if";
+import jsonminify from "gulp-jsonminify";
+import mustache from "gulp-mustache";
+import plumber from "gulp-plumber";
+import rename from "gulp-rename";
+import zip from "gulp-zip";
 
-import chalk = require("chalk");
-import del = require("del");
-import _ = require("lodash");
+import chalk from "chalk";
+import del from "del";
+import _ from "lodash";
 
 // ----------------------------------------------------------------------------
 
 const pkg: { [key: string]: string } = JSON.parse(
-  fs.readFileSync("./package.json").toString("utf-8"),
+  readFileSync("./package.json").toString("utf-8"),
 );
 const isDev = process.argv.includes("watch");
 

@@ -1,7 +1,7 @@
 "use strict";
 
-import cheerio = require("cheerio");
-import v = require("voca");
+import { load } from "cheerio";
+import v from "voca";
 
 export interface ITeam {
   name: string;
@@ -22,7 +22,7 @@ export async function searchJoinedTeams(): Promise<ITeam[]> {
   }
 
   const body = await res.text();
-  const $ = cheerio.load(body);
+  const $ = load(body);
   const propsNode = $("#props_node");
   const propsText = propsNode.attr("data-props");
   if (!propsText) {

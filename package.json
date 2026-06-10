@@ -3,6 +3,7 @@
   "version": "1.1.4",
   "description": "Ultimate Browser Extension for Emoji Generator",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "gulp watch",
     "build": "gulp",
@@ -14,7 +15,7 @@
   "dependencies": {
     "@emoji-gen/clone-into": "^0.3.0",
     "@emoji-gen/ptero": "^0.3.0",
-    "cheerio": "1.0.0-rc.12",
+    "cheerio": "1.2.0",
     "voca": "^1.4.0"
   },
   "devDependencies": {
